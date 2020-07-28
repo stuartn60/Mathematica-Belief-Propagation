@@ -134,19 +134,19 @@ factorMarginalization[a_,v_,isMax_]:=Module[{bVar,mapB,bCard,bVal,assignments,in
 	Max@@{Last/@#}&/@GatherBy[Thread[{indxB,Last@a}],First],
 	Total@@{Last/@#}&/@GatherBy[Thread[{indxB,Last@a}],First]];
 	{bVar,bCard,bVal}]
-observeEvidence[f_,e_]:=Module[{v,x,indx,assignments,posNonx,newf,i,j},
-	If[e=={},Return@f];newf=f;
-	Do[v=First@e[[i]];x=Last@e[[i]];
-		If[x==0,Print["Evidence not set for variable: ",v];Continue[]];
-		Do[indx=Flatten@Position[f[[j,1]],v];
-			If[And@@{indx!={},Or@@{x>Extract[f[[j,2]],indx],x<0}},Print["Invalid evidence, X_",v," = ",x]];
-			If[indx!={},assignments=indexToAssignment[Range@(Times@@f[[j,2]]),f[[j,2]]];
-			posNonx=Complement[Thread[{Range@Length@assignments}],Position[assignments[[All,indx]],{x}]];
-			newf=Fold[ReplacePart[#1,{j,-1,First@#2}->0]&,newf,Union@posNonx]];
-			If[And@@Thread[newf[[j,-1]]==0],Print["Factor ",j," has zero values so assignment is not possible"]],
-		{j,Length@f}],
-	{i,First@Dimensions@e}];
-	newf]
+observeEvidence[f_,e_]:=Module[{vars,cards,states,notStates,assignments,pos1,pos2,pos3,y},
+   If[e=={},Return@f];
+  vars=First/@e;
+  pos1=Position[First/@f,#]&/@vars;
+  cards=First/@(Extract[f[[All,2]],#]&/@pos1);
+  states=Last/@e;
+  notStates=Complement[Range@cards[[#]],{states[[#]]}]&/@Range@Length@states;
+  (*factor,varposn,single-notState*)
+  pos2=Flatten[Table[Append[#[[;;2]],y],{y,Last@#}]&/@Flatten[Outer[Join,pos1[[#]],{{notStates[[#]]}},1,1]&/@Range@Length@pos1,2],1];
+  assignments=indexToAssignment[Range@(Times@@#),#]&/@f[[All,2]];
+  (*factor,val position to set to zero*)
+  pos3=Flatten[Table[{First@#,y},{y,Flatten@Position[assignments[[First@#,All,#[[2]]]],Last@#]}]&/@pos2,1];
+  Fold[ReplacePart[#1,{First@#2,-1,Last@#2}->0]&,f,pos3]]
 computeJointDistribution[f_]:=Which[f=={},Print["Error:empty factor list"];{{},{},{}},
 	Length@f==1,factorProductOrSum[First@f,Join[Most@First@f,{1+0Last@First@f}],False],
 	True,Fold[factorProductOrSum[#1,#2,False]&,First@f,Rest@f]]

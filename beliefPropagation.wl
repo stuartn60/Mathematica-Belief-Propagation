@@ -80,20 +80,23 @@ createClusterGraph::usage ="createClusterGraph[f,e] calculates an adjacency matr
  ... f is the cluster list with each being a list containing the list of factor variables, list of variable cardinalities & list of variable values
  ... e is the observed evidence being a list of {variable, evidence value} 
  ... each cluster in the returned cluster list contains a list of factor variables, list of variable cardinalities & list of variable values initialized to the initial potential";
-checkConvergence::usage ="checkConvergence[new_,old_] determines whether iterative message passing has converged to a threshhold of 10e-6
+checkConvergence::usage ="checkConvergence[new_,old_,threshhold:10^-6] determines whether iterative message passing has converged to a threshhold of 10e-6
  ... new and old are message matrices with respective values of the message from cluster i to cluster j
- ... each message in the matrix is a list containing the list of factor variables, list of variable cardinalities & list of variable values";
-clusterGraphCalibrate::usage ="clusterGraphCalibrate[p,isMax,useSmartMP] returns the adjacency matrix for a cluster graph (p) and the initial potentials of the clusers using loopy belief propagation
+ ... each message in the matrix is a list containing the list of factor variables, list of variable cardinalities & list of variable values
+ ... default threshhold for convergence is 10^-6";
+clusterGraphCalibrate::usage ="clusterGraphCalibrate[p,isMax,useSmartMP,threshhold:10^-6] returns the adjacency matrix for a cluster graph (p) and the initial potentials of the clusers using loopy belief propagation
  ... each cluster is a list containing the list of factor variables, list of variable cardinalities & list of variable values
  ... if isMax is False the algorithm is SumProduct with ouput of normalised probabilities
  ... if isMax is True the algorithm is MaxProduct (Maximum a Posteriori) with output unnormalised natural logarithms
- ... if useSmartMP is True then an enhanced apporach is used to obtain the next message cluster for processing";
-computeApproxMarginalsBP::usage ="computeApproxMarginalsBP[f,e,isMax:False,useSmartMP:False] calculates the approximate posterior marginal probability distribution over each variable in f given the evidence e 
+ ... if useSmartMP is True then an enhanced approach is used to obtain the next message cluster for processing
+ ... default threshhold for convergence is 10^-6";
+computeApproxMarginalsBP::usage ="computeApproxMarginalsBP[f,e:{},isMax:False,useSmartMP:False,threshhold:10^-6] calculates the approximate posterior marginal probability distribution over each variable in f given the evidence e 
  ... f is the clique list with each being a list containing the list of factor variables, list of variable cardinalities & list of variable values
  ... e is the observed evidence being a list of {variable, evidence value}
  ... if isMax is False the algorithm is SumProduct with ouput of normalised probabilities
  ... if isMax is True the algorithm is MaxProduct (Maximum a Posteriori) with output unnormalised natural logarithms
- ... if useSmartMP is True then an enhanced apporach is used to obtain the next message cluster for processing";
+ ... if useSmartMP is True then an enhanced approach is used to obtain the next message cluster for processing
+ ... default threshhold for convergence is 10^-6";
 Begin["`Private`"];
 repMat[a_,m_,n_]:=If[Length@Dimensions@a==1,ArrayFlatten@Table[{a},m,n],ArrayFlatten@Table[a,m,n]]
 cumProduct[list_]:=FoldList[Times,list]
@@ -139,8 +142,8 @@ observeEvidence[f_,e_]:=Module[{v,x,indx,assignments,posNonx,newf,i,j},
 			If[And@@{indx!={},Or@@{x>Extract[f[[j,2]],indx],x<0}},Print["Invalid evidence, X_",v," = ",x]];
 			If[indx!={},assignments=indexToAssignment[Range@(Times@@f[[j,2]]),f[[j,2]]];
 			posNonx=Complement[Thread[{Range@Length@assignments}],Position[assignments[[All,indx]],{x}]];
-			newf=Fold[ReplacePart[#1,{j,3,First@#2}->0]&,newf,Union@posNonx]];
-			If[And@@Thread[newf[[j,3]]==0],Print["Factor ",j," has zero values so assignment is not possible"]],
+			newf=Fold[ReplacePart[#1,{j,-1,First@#2}->0]&,newf,Union@posNonx]];
+			If[And@@Thread[newf[[j,-1]]==0],Print["Factor ",j," has zero values so assignment is not possible"]],
 		{j,Length@f}],
 	{i,First@Dimensions@e}];
 	newf]
@@ -275,7 +278,7 @@ clusterGraphCalibrate[p_,isMax_,useSmartMP_,threshhold_:10^-6]:=Module[{clusterE
 	Do[clusterList[[Last@pos[[m]]]]=factorProductOrSum[clusterList[[Last@pos[[m]]]],messages[[First@pos[[m]],Last@pos[[m]]]],isMax],
 	{m,Length@pos}];
 	{clusterList,messages}]
-computeApproxMarginalsBP[f_,e_,isMax_:False,useSmartMP_:False,threshhold_:10^-6]:=computeMarginalsBP[First@clusterGraphCalibrate[createClusterGraph[f,e],isMax,useSmartMP,threshhold],isMax]
+computeApproxMarginalsBP[f_,e_:{},isMax_:False,useSmartMP_:False,threshhold_:10^-6]:=computeMarginalsBP[First@clusterGraphCalibrate[createClusterGraph[f,e],isMax,useSmartMP,threshhold],isMax]
 SetAttributes[beliefPropagation,{Protected,ReadProtected,Locked}]
 End[];
 EndPackage[]

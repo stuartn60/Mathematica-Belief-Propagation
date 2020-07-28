@@ -30,7 +30,9 @@ The packages are developed & maintained in the latest release of Wolfram Mathema
 Algorithms implementations are provided in Wolfram package files (“*.wl”). A list of algorithms and usage may be obtained using the Mathematica notebook command:
 ?beliefPropagation`*
 
-Tests and illustrative use are provided in a Mathematica notebook files (“*.nb”), in PDF files, or in Markdown files. Set the directory path in the Mathematica notebook to your own directory.
+Tests and illustrative use are provided in a Mathematica notebook files (“*.nb”), in PDF files, or in Markdown files.
+
+Two notebooks are provided: beliefPropagationTests.nb (unit tests) and gradeBook.nb (comparison of methods with joint probability distribution and with samiam Bayesnet). Each notebook requires you to set the directory path your own working directory.
 
 Enhancements
 

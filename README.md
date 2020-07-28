@@ -11,7 +11,7 @@ Belief Propagation is a message-passing algorithm for performing Bayesian infere
 
 Belief propagation is performed with either SumProduct Message Passing (also called Shafer-Shenoy) or MaxProduct Message Passing for Maximum a Posteriori (MAP) estimation. The resulting SumProduct marginal distributions are normalised to sum to 1. However MaxProduct marginal distributions remain unnormalised natural logarithms.
 
-A second Belief Passing algorithm called Loopy Belief Propagation (computeApproximateMarginalsBP) can be for large networks and usually converges although it may not.
+A second Belief Passing algorithm called Loopy Belief Propagation (computeApproximateMarginalsBP) can be used for large networks and usually converges although it may not.
 
 License matters
 

@@ -20,6 +20,8 @@ The Belief Propagation Algorithms derive from Octave software I developed for Da
 All code files and executable documents are with the license GPL 3.0. For details see http://www.gnu.org/licenses/
 
 All documents are with the license Creative Commons Attribution 4.0 International (CC BY 4.0). For details see https://creativecommons.org/licenses/by/4.0/
+
+Disclaimer: This software should be considered as 'alpha stage' & 'not ready for production.' It is provided with no express or implied warranty
  
 Organization
 

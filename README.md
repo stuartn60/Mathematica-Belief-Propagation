@@ -1,27 +1,27 @@
 # Mathematica-Belief-Propagation
-Exact &amp; Loopy Belief Propagation in Mathematica
+Exact &amp; Loopy Belief Propagation fro Undirected Networks in Mathematica
 
 Mission statement 
 
 This open source project is for Wolfram Language implementations of decision science algorithms in Subjective Logic & Bayesian networks that can be used for data analysis, forecast, prediction and recommendation systems.
 
-An exact algorithm (computeMarginals) may be used for small scale marginal distribution inference. However this computation is NP hard and processing times exponentially increase with the scale of the network.
+An exact algorithm (computeMarginals) may be used for small scale marginal distribution inference in undirected networks. However this computation is NP hard and processing times exponentially increase with the scale of the network.
 
-Belief Propagation is a message-passing algorithm for performing Bayesian inference. A Belief Passing algorithm (computeExactMarginalsBP) may be used for improved performance in exact inference.
+Belief Propagation is a message-passing algorithm for performing Bayesian inference. A Belief Passing algorithm (computeExactMarginalsBP) may be used for improved performance in exact inference in undirected networks.
 
 Belief propagation is performed with either SumProduct Message Passing (also called Shafer-Shenoy) or MaxProduct Message Passing for Maximum a Posteriori (MAP) estimation. The resulting SumProduct marginal distributions are normalised to sum to 1. However MaxProduct marginal distributions remain unnormalised natural logarithms.
 
-A second Belief Passing algorithm called Loopy Belief Propagation (computeApproximateMarginalsBP) can be used for large networks and usually converges although it may not.
+A second Belief Passing algorithm called Loopy Belief Propagation (computeApproximateMarginalsBP) can be used for large undirected networks and usually converges although it may not.
 
 License matters
 
-The Belief Propagation Algorithms originate with software I developed as part of Daphne Koller’s Stanford University Subject ‘Probabilistic Graphical Models’, Copyright (c) Daphne Koller, Stanford University, 2012.
+These Belief Propagation Algorithms originate with software I auhored as part of Daphne Koller’s Stanford University Subject ‘Probabilistic Graphical Models’, Copyright (c) Daphne Koller, Stanford University, 2012.
 
 All code files and executable documents are with the license GPL 3.0. For details see http://www.gnu.org/licenses/
 
 All documents are with the license Creative Commons Attribution 4.0 International (CC BY 4.0). For details see https://creativecommons.org/licenses/by/4.0/
 
-Disclaimer: This software should be considered as 'alpha stage' & 'not ready for production.' It is provided with no express or implied warranty
+Disclaimer: This software should be considered as 'alpha stage' & 'not ready for production.' It is provided with no express or implied warranty.
  
 Organization
 
@@ -32,7 +32,7 @@ Algorithms implementations are provided in Wolfram package files (“*.wl”). A
 
 Tests and illustrative use are provided in a Mathematica notebook files (“*.nb”), in PDF files, or in Markdown files.
 
-Two notebooks are provided: beliefPropagationTests.nb (unit tests) and gradeBook.nb (comparison of methods with joint probability distribution and with samiam Bayesnet). Each notebook requires you to set the directory path your own working directory.
+Two notebooks are provided: beliefPropagationTests.nb (unit tests) and gradeBook.nb (comparison of undirected methods with a directed joint probability distribution and with a directed samiam Bayesnet). Each notebook requires that the directory path be set to a working directory containing the Wolfram language package with test data in a subdirectiory.
 
 Enhancements
 

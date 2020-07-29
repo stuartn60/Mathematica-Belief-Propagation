@@ -7,6 +7,8 @@ This open source project is for Wolfram Language implementations of decision sci
 
 An exact algorithm (computeMarginals) may be used for small scale marginal distribution inference in undirected networks. However this computation is NP hard and processing times exponentially increase with the scale of the network.
 
+It might be noted that the use of Markov models is not as intuitive as Bayesian models because the factors do not correspond either to probabilities or to the conditional probabilities. In practice, the factors in unirected networks are learned using sampling abd maximum likelihood estimation. Algorithms for learning factors will be added to this repository in the future.
+
 Belief Propagation is a message-passing algorithm for performing Bayesian inference. A Belief Passing algorithm (computeExactMarginalsBP) may be used for improved performance in exact inference in undirected or Markov networks. Markov networks are generally preferred over Bayesian networks for better perspectives on problems where there is a probabilistic interaction between neighbouring variables and in particular when the interaction between variables isn't decisively directed.
 
 Belief propagation is performed with either SumProduct Message Passing (also called Shafer-Shenoy) or MaxProduct Message Passing for Maximum a Posteriori (MAP) estimation. The resulting SumProduct marginal distributions are normalised to sum to 1. However MaxProduct marginal distributions remain unnormalised natural logarithms.
@@ -32,8 +34,7 @@ Algorithms implementations are provided in Wolfram package files (“*.wl”). A
 
 Tests and illustrative use are provided in a Mathematica notebook files (“*.nb”), in PDF files, or in Markdown files.
 
-Two notebooks are provided: beliefPropagationTests.nb (unit tests) and gradeBook.nb (comparison of undirected methods with a directed chain-rule method based on the joint probability distribution and with a directed Bayesnet in samiam). However Markov models as not as intuitive as Bayesian models because the factors do not correspond either to probabilities or to the conditional probabilities.In practice, the factors are learned with sampling abd maximum likelihood estimation.
-
+A test notebook is provided: beliefPropagationTests.nb (unit tests). 
 Each notebook requires that the directory path be set to a working directory containing the Wolfram language package with test data in a subdirectiory.
 
 Enhancements

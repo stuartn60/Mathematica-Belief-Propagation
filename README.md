@@ -1,5 +1,5 @@
 # Mathematica-Belief-Propagation
-Exact &amp; Loopy Belief Propagation fro Undirected Networks in Mathematica
+Exact &amp; Loopy Belief Propagation for Undirected Networks in Mathematica
 
 Mission statement 
 

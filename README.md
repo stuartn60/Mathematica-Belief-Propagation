@@ -32,7 +32,9 @@ Algorithms implementations are provided in Wolfram package files (“*.wl”). A
 
 Tests and illustrative use are provided in a Mathematica notebook files (“*.nb”), in PDF files, or in Markdown files.
 
-Two notebooks are provided: beliefPropagationTests.nb (unit tests) and gradeBook.nb (comparison of undirected methods with a directed chain-rule method based on the joint probability distribution and with a directed Bayesnet in samiam). Each notebook requires that the directory path be set to a working directory containing the Wolfram language package with test data in a subdirectiory.
+Two notebooks are provided: beliefPropagationTests.nb (unit tests) and gradeBook.nb (comparison of undirected methods with a directed chain-rule method based on the joint probability distribution and with a directed Bayesnet in samiam). However Markov models as not as intuitive as Bayesian models because the factors do not correspond either to probabilities or to the conditional probabilities.
+
+Each notebook requires that the directory path be set to a working directory containing the Wolfram language package with test data in a subdirectiory.
 
 Enhancements
 

@@ -7,7 +7,7 @@ This open source project is for Wolfram Language implementations of decision sci
 
 An exact algorithm (computeMarginals) may be used for small scale marginal distribution inference in undirected networks. However this computation is NP hard and processing times exponentially increase with the scale of the network.
 
-Belief Propagation is a message-passing algorithm for performing Bayesian inference. A Belief Passing algorithm (computeExactMarginalsBP) may be used for improved performance in exact inference in undirected or Markov networks.
+Belief Propagation is a message-passing algorithm for performing Bayesian inference. A Belief Passing algorithm (computeExactMarginalsBP) may be used for improved performance in exact inference in undirected or Markov networks. Markov networks are generally preferred over Bayesian networks for better perspectives on problems where there is a probabilistic interaction between neighbouring variables and in particular when the interaction between variables isn't decisively directed.
 
 Belief propagation is performed with either SumProduct Message Passing (also called Shafer-Shenoy) or MaxProduct Message Passing for Maximum a Posteriori (MAP) estimation. The resulting SumProduct marginal distributions are normalised to sum to 1. However MaxProduct marginal distributions remain unnormalised natural logarithms.
 

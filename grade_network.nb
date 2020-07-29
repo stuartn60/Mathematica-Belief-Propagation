@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    191467,       3524]
-NotebookOptionsPosition[    190098,       3495]
-NotebookOutlinePosition[    190532,       3512]
-CellTagsIndexPosition[    190489,       3509]
+NotebookDataLength[    193143,       3551]
+NotebookOptionsPosition[    191674,       3521]
+NotebookOutlinePosition[    192108,       3538]
+CellTagsIndexPosition[    192065,       3535]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2423,8 +2423,10 @@ c28eb57b3431"],
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", 
-   RowBox[{"GWR", " ", "Distributions", " ", "Method"}], "*)"}], 
-  "\[IndentingNewLine]", 
+   RowBox[{
+   "GWR", " ", "Distributions", " ", "Method", " ", "for", " ", "Directed", 
+    " ", "Acyclic", " ", "Graph", " ", 
+    RowBox[{"(", "DAG", ")"}]}], " ", "*)"}], "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{
@@ -2806,29 +2808,31 @@ Cell[BoxData[
     ";"}]}]}]], "Input",
  InitializationCell->True,
  CellChangeTimes->CompressedData["
-1:eJwlzX0s1HEABvA7y1rrdhhdWlQqmne63EhzDulIjatIm+K46VydpoxLqzvV
-NDQXpo1ermuLboahicYyZLmzc2TTG3flZeMn0WJc1O/59sezz55/nsdNnC2S
-2DAYDB4d+KR362OPr3MC0fp/O7abNHDPKksL8/SHa6FT7mQzfJFS0A7ljUU9
-cHOJ7j1c83YxwPFb1WZI8QcsZHdtZIrsjBVR8Mfba8wDtKlMB1uixj8BtljX
-E6F9Tpreh3bat2EQ8qZOu4eKKEF0SqgvNLgXBkJViysX7kj3CoZhl/Xh8Kxy
-LgpGWSQxUKALSobLReVE44xDJqyclUihVpSbDcUq51LY/MaxHmbFrBKdbix1
-E4erBiC3uH2Y/Ai9RyGzymYC3lQfMsMlA2cStr7rId6fYFCk22nm4cpyueMR
-2oiT8zvh7F1/OTT6F+ZCth8/rJGWp/Djw2/9ATr7U5Rgr925eti3GN/GT6YE
-57+7LsKfXdLf0FPBXoHdZf1WaBlXbMAs42fbcNogy1EO9GFF7IdipdATflL5
-cmFBQyxRW3AwGN5uuRMJ4/pGUmHXpnliR8AxNVQynz6CC1fXQgS08fdOXICs
-IbYEZshMmZDnVSGDZwJfEqs3zJWwmF+ngXWmfXUw7u8V4vMH6laYMxHyimjJ
-N8GyEtkwvP66jILWZz0LcEtvgksE7YdE0S7I+Oj9MBK/TceJY8rpGlidNtME
-ow2ObdCtc3cnrB384hBF+2f0FwcmbVO5wCGOkwcUjmYIYb68PAmOS1WXhLQ1
-9SFyqFnVpMfQxuZtENU2pRehXu0sg/8AYx2kKQ==
+1:eJwlzX0s1HEABvA7y1rLvIwurVOpMO8kIs05pCM1riJtyttNXE5TN6SXO9U0
+NJdMG71c2iK7YWiisezIcnc7d7L0dlx52fhJtNiRq9/z7Y9nnz3/PI9zeh5f
+YMFgMA7QgY/7Nz9y/TrH5a//t3urTg53mazqYYHqYAN0EE+2wecpxV1Q1FKq
+hBvLm97BVU+2Ghpu1E5AijNkJLurI1NkZ6yUgj/eXGa60aYy7SyJct8E2L62
+nght89NUXrTT3s0aGDR10iWUT3GjU0K9odqlxB9K250C4LYMj2AYlqsKh6cl
+c1EwyiiIgdymwGS4XFpF1M7YZcHqWUE2rOeL82C61LECtr22V8CcGBPR4epS
+H1FfMwQDyrr05IfnOQqZNRbj8Lps/wRcUrMmYcdbJfHuOIMi3UY+D1eWq+wP
+0UYcn98OZ2/7iqDWt0QMrX04YS20QUU+HPht0K/J9gTF3W1zRgEHFuM7OckU
+9+x3p0X4szf7N3Qvsl6BfZWDa9BoKDLDHO1ny3DaQONhFvSyitgL0yU8d/hJ
+6h0Ai5tjifXF+4LhzfZbkTBuYCQV9m6YJ3b7HZFBCfPJQ7hwaTWESxt/59g5
+aDVsLYCZQl0WDPK4L4Sn/F8Qa80T1bCM0yiHjbo9jTDu70Xis3uyDpg/HvKS
+aCzUwcpyoR5eeVVJwbWnygW4qT+BHUH7PpG/AzI+ej6IxG/rUeKYZLoO1qbN
+tMJotX0ndO7Z2QMbNF/somj/jP5iwaQtUjYcZjm4Qt5oJg8WiqqSoCFbeoFH
+W6cIEUG5SZ4RQxtbYCbKLCrOQ5XMUQgXPrjlVtBe0yjz4D/4Z60k
   "],
- CellLabel->"In[12]:=",ExpressionUUID->"ec7b57f0-b6a1-4bdb-8cb2-0f2a8944e4cb"],
+ CellLabel->"In[1]:=",ExpressionUUID->"ec7b57f0-b6a1-4bdb-8cb2-0f2a8944e4cb"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", 
-   RowBox[{"Belief", " ", "Propagation"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+   "Belief", " ", "Propagation", " ", "for", " ", "Undirected", " ", 
+    "Graph"}], "*)"}], "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
     RowBox[{
@@ -2950,11 +2954,13 @@ Cell[BoxData[
             RowBox[{
              RowBox[{"{", 
               RowBox[{
-              "\"\<samiam\>\"", ",", "\"\<GWR distributions method\>\"", ",", 
-               "\"\<Compute Exact Marginals\>\"", ",", 
-               "\"\<Compute Exact Marginals Message Passing\>\"", ",", 
-               "\"\<Compute Approx Marginals Message Passing\>\""}], "}"}], 
-             ",", "\[IndentingNewLine]", "data"}], "}"}]}], "]"}], ",", 
+              "\"\<samiam (Directed)\>\"", ",", 
+               "\"\<GWR distributions method (Directed)\>\"", ",", 
+               "\"\<Compute Exact Marginals (Undirected)\>\"", ",", 
+               "\"\<Compute Exact Marginals Message Passing (Undirected)\>\"",
+                ",", "\"\<Compute Approx Marginals Message Passing \
+(Undirected)\>\""}], "}"}], ",", "\[IndentingNewLine]", "data"}], "}"}]}], 
+          "]"}], ",", 
          RowBox[{"{", 
           RowBox[{
            RowBox[{"Join", "[", 
@@ -3034,7 +3040,7 @@ Cell[BoxData[
        RowBox[{"ItemSize", "\[Rule]", 
         RowBox[{"{", 
          RowBox[{"{", 
-          RowBox[{"28", ",", "8", ",", "8", ",", "11", ",", 
+          RowBox[{"36", ",", "8", ",", "8", ",", "11", ",", 
            RowBox[{"{", "8", "}"}]}], "}"}], "}"}]}], ",", 
        RowBox[{"Frame", "\[Rule]", 
         RowBox[{"Darker", "[", 
@@ -3153,8 +3159,20 @@ Cell[BoxData[
    3.804900764650448*^9, 3.804900766861825*^9}, {3.804906271887236*^9, 
    3.804906298694747*^9}, {3.804906377632227*^9, 3.804906387946177*^9}, {
    3.804908079345544*^9, 3.804908085297933*^9}, {3.804908155239045*^9, 
-   3.804908225170965*^9}, {3.804908390566423*^9, 3.8049084910508213`*^9}},
- CellLabel->"In[23]:=",ExpressionUUID->"2f6fdc73-ed79-4c5b-910f-8dc67c0f37d3"],
+   3.804908225170965*^9}, {3.804908390566423*^9, 3.8049084910508213`*^9}, {
+   3.8050456393475113`*^9, 3.805045744646256*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"2f6fdc73-ed79-4c5b-910f-8dc67c0f37d3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Attributes", "locked", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"beliefPropagation\\\"}]\\) is locked.\"", 2,
+    29, 2, 22939665138977885630, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.80504573938484*^9, 3.805045745243538*^9}},
+ CellLabel->
+  "During evaluation of \
+In[28]:=",ExpressionUUID->"7e02c206-5847-438c-a6bc-4bc2d8fc646e"],
 
 Cell[CellGroupData[{
 
@@ -3173,18 +3191,19 @@ Cell[BoxData[
    3.804900703089644*^9, 3.804900715307021*^9}, 3.804900769158996*^9, {
    3.804906280075472*^9, 3.804906299842098*^9}, {3.804906361373398*^9, 
    3.804906389115425*^9}, 3.804907984731002*^9, 3.804908087220489*^9, 
-   3.804908530057116*^9},
+   3.804908530057116*^9, 3.8049092399403877`*^9, {3.8049386417666616`*^9, 
+   3.8049386549387827`*^9}, {3.8050457309435377`*^9, 3.805045745368309*^9}},
  CellLabel->
   "During evaluation of \
-In[23]:=",ExpressionUUID->"78d35f0c-26fb-4982-944e-04c7661bdb96"],
+In[28]:=",ExpressionUUID->"8a559fbc-924e-419d-901d-1c221dee4702"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"Total number of messages passed: \"\>", "\[InvisibleSpace]", 
    "11", "\[InvisibleSpace]", "\<\" in \"\>", "\[InvisibleSpace]", 
-   "0.004692`4.122902996939467", "\[InvisibleSpace]", "\<\" seconds\"\>"}],
+   "0.019218`4.735253182543438", "\[InvisibleSpace]", "\<\" seconds\"\>"}],
   SequenceForm[
-  "Total number of messages passed: ", 11, " in ", 0.004692`4.122902996939467,
+  "Total number of messages passed: ", 11, " in ", 0.019218`4.735253182543438,
     " seconds"],
   Editable->False]], "Print",
  CellChangeTimes->{
@@ -3197,10 +3216,12 @@ Cell[BoxData[
    3.804900703089644*^9, 3.804900715307021*^9}, 3.804900769158996*^9, {
    3.804906280075472*^9, 3.804906299842098*^9}, {3.804906361373398*^9, 
    3.804906389115425*^9}, 3.804907984731002*^9, 3.804908087220489*^9, 
-   3.804908530059104*^9},
+   3.804908530057116*^9, 3.8049092399403877`*^9, {3.8049386417666616`*^9, 
+   3.8049386549387827`*^9}, {3.8050457309435377`*^9, 3.8050457453702793`*^9}},
+ 
  CellLabel->
   "During evaluation of \
-In[23]:=",ExpressionUUID->"f39c5029-c4cf-4a15-b012-f41d08b1aa1a"],
+In[28]:=",ExpressionUUID->"f15d3e77-36b0-4a82-84e6-c0aff7ce4ede"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -3217,19 +3238,20 @@ Cell[BoxData[
    3.804900703089644*^9, 3.804900715307021*^9}, 3.804900769158996*^9, {
    3.804906280075472*^9, 3.804906299842098*^9}, {3.804906361373398*^9, 
    3.804906389115425*^9}, 3.804907984731002*^9, 3.804908087220489*^9, 
-   3.8049085300791616`*^9},
+   3.804908530057116*^9, 3.8049092399403877`*^9, {3.8049386417666616`*^9, 
+   3.8049386549387827`*^9}, {3.8050457309435377`*^9, 3.805045745414405*^9}},
  CellLabel->
   "During evaluation of \
-In[23]:=",ExpressionUUID->"3a50a5f5-f430-46c0-920f-d17c10a638f0"],
+In[28]:=",ExpressionUUID->"c9de0c56-077a-41bf-93e6-685d525997dc"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"Total number of messages passed: \"\>", "\[InvisibleSpace]", 
    "11", "\[InvisibleSpace]", "\<\" in \"\>", "\[InvisibleSpace]", 
-   "0.005515`4.19309051027218", "\[InvisibleSpace]", "\<\" seconds\"\>"}],
+   "0.006086`4.235876941518121", "\[InvisibleSpace]", "\<\" seconds\"\>"}],
   SequenceForm[
-  "Total number of messages passed: ", 11, " in ", 0.005515`4.19309051027218, 
-   " seconds"],
+  "Total number of messages passed: ", 11, " in ", 0.006086`4.235876941518121,
+    " seconds"],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.804898322036516*^9, 3.8048984348759727`*^9, {3.804898665619458*^9, 
@@ -3241,10 +3263,11 @@ Cell[BoxData[
    3.804900703089644*^9, 3.804900715307021*^9}, 3.804900769158996*^9, {
    3.804906280075472*^9, 3.804906299842098*^9}, {3.804906361373398*^9, 
    3.804906389115425*^9}, 3.804907984731002*^9, 3.804908087220489*^9, 
-   3.804908530080173*^9},
+   3.804908530057116*^9, 3.8049092399403877`*^9, {3.8049386417666616`*^9, 
+   3.8049386549387827`*^9}, {3.8050457309435377`*^9, 3.805045745415633*^9}},
  CellLabel->
   "During evaluation of \
-In[23]:=",ExpressionUUID->"ac16bab1-d6b3-48bf-8c69-74aa7cb80d61"]
+In[28]:=",ExpressionUUID->"cdbe7534-c443-4771-b255-208065cc847c"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -3259,7 +3282,7 @@ Cell[BoxData[
          {"\<\"Node\"\>", "\<\"Difficulty\"\>", "\<\"Intelligence\"\>", \
 "\<\"Grade\"\>", "\<\"SAT\"\>", "\<\"Letter\"\>"},
          {"\<\"Cardinality\"\>", "2", "2", "3", "2", "2"},
-         {"\<\"samiam\"\>", 
+         {"\<\"samiam (Directed)\"\>", 
           RowBox[{"{", 
            RowBox[{"0.6`", ",", "0.4`"}], "}"}], 
           RowBox[{"{", 
@@ -3270,7 +3293,7 @@ Cell[BoxData[
            RowBox[{"0.72`", ",", "0.28`"}], "}"}], 
           RowBox[{"{", 
            RowBox[{"0.5`", ",", "0.5`"}], "}"}]},
-         {"\<\"GWR distributions method\"\>", 
+         {"\<\"GWR distributions method (Directed)\"\>", 
           RowBox[{"{", 
            RowBox[{"0.6`", ",", "0.4`"}], "}"}], 
           RowBox[{"{", 
@@ -3281,7 +3304,7 @@ Cell[BoxData[
            RowBox[{"0.72`", ",", "0.28`"}], "}"}], 
           RowBox[{"{", 
            RowBox[{"0.5`", ",", "0.5`"}], "}"}]},
-         {"\<\"Compute Exact Marginals\"\>", 
+         {"\<\"Compute Exact Marginals (Undirected)\"\>", 
           RowBox[{"{", 
            RowBox[{"0.57`", ",", "0.43`"}], "}"}], 
           RowBox[{"{", 
@@ -3292,7 +3315,7 @@ Cell[BoxData[
            RowBox[{"0.61`", ",", "0.39`"}], "}"}], 
           RowBox[{"{", 
            RowBox[{"0.51`", ",", "0.49`"}], "}"}]},
-         {"\<\"Compute Exact Marginals Message Passing\"\>", 
+         {"\<\"Compute Exact Marginals Message Passing (Undirected)\"\>", 
           RowBox[{"{", 
            RowBox[{"0.57`", ",", "0.43`"}], "}"}], 
           RowBox[{"{", 
@@ -3303,7 +3326,7 @@ Cell[BoxData[
            RowBox[{"0.61`", ",", "0.39`"}], "}"}], 
           RowBox[{"{", 
            RowBox[{"0.51`", ",", "0.49`"}], "}"}]},
-         {"\<\"Compute Approx Marginals Message Passing\"\>", 
+         {"\<\"Compute Approx Marginals Message Passing (Undirected)\"\>", 
           RowBox[{"{", 
            RowBox[{"0.69`", ",", "0.31`"}], "}"}], 
           RowBox[{"{", 
@@ -3333,25 +3356,25 @@ Cell[BoxData[
         GridBoxFrame->{
          "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> RGBColor[0.2, 0.2, 0.2]}},
         
-        GridBoxItemSize->{"Columns" -> {28, 8, 8, 11, {8}}},
+        GridBoxItemSize->{"Columns" -> {36, 8, 8, 11, {8}}},
         GridBoxItemStyle->{"Columns" -> {{14}}, "Rows" -> {{14}}},
         GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0.8}}}],
        "Grid"], TextForm]], "InlineText",ExpressionUUID->
-     "9e5f5467-9ae1-41d2-87e4-551d510988b1"],
+     "1b7a53d0-f972-4e91-8fc2-ded923544f12"],
     Text[
      Grid[{{"Marginals without Evidence", SpanFromLeft}, {
        "Node", "Difficulty", "Intelligence", "Grade", "SAT", "Letter"}, {
        "Cardinality", 2, 2, 3, 2, 2}, {
-       "samiam", {0.6, 0.4}, {0.7, 0.3}, {0.36, 0.29, 0.35}, {0.72, 0.28}, {
-        0.5, 0.5}}, {
-       "GWR distributions method", {0.6, 0.4}, {0.7, 0.3}, {0.36, 0.29, 
-        0.35}, {0.72, 0.28}, {0.5, 0.5}}, {
-       "Compute Exact Marginals", {0.57, 0.43}, {0.72, 0.28}, {0.43, 0.22, 
-        0.35}, {0.61, 0.39}, {0.51, 0.49}}, {
-       "Compute Exact Marginals Message Passing", {0.57, 0.43}, {0.72, 
-        0.28}, {0.43, 0.22, 0.35}, {0.61, 0.39}, {0.51, 0.49}}, {
-       "Compute Approx Marginals Message Passing", {0.69, 0.31}, {0.76, 
-        0.24}, {0.35, 0.04, 0.61}, {0.85, 0.15}, {0.8, 0.2}}}, 
+       "samiam (Directed)", {0.6, 0.4}, {0.7, 0.3}, {0.36, 0.29, 0.35}, {0.72,
+         0.28}, {0.5, 0.5}}, {
+       "GWR distributions method (Directed)", {0.6, 0.4}, {0.7, 0.3}, {0.36, 
+        0.29, 0.35}, {0.72, 0.28}, {0.5, 0.5}}, {
+       "Compute Exact Marginals (Undirected)", {0.57, 0.43}, {0.72, 0.28}, {
+        0.43, 0.22, 0.35}, {0.61, 0.39}, {0.51, 0.49}}, {
+       "Compute Exact Marginals Message Passing (Undirected)", {0.57, 0.43}, {
+        0.72, 0.28}, {0.43, 0.22, 0.35}, {0.61, 0.39}, {0.51, 0.49}}, {
+       "Compute Approx Marginals Message Passing (Undirected)", {0.69, 
+        0.31}, {0.76, 0.24}, {0.35, 0.04, 0.61}, {0.85, 0.15}, {0.8, 0.2}}}, 
       Background -> {None, {
          RGBColor[0.97, 0.97, 1.], 
          RGBColor[1., 1., 0.9], {
@@ -3364,7 +3387,7 @@ Cell[BoxData[
          RGBColor[0.2, 0.2, 0.2], 
          RGBColor[0.2, 0.2, 0.2], {False}, 
          RGBColor[0.2, 0.2, 0.2]}}, Alignment -> {{Left, {Center}}}, 
-      ItemSize -> {{28, 8, 8, 11, {8}}}, Frame -> RGBColor[0.2, 0.2, 0.2], 
+      ItemSize -> {{36, 8, 8, 11, {8}}}, Frame -> RGBColor[0.2, 0.2, 0.2], 
       ItemStyle -> 14, Spacings -> {Automatic, 0.8}]]], ",", 
    InterpretationBox[Cell[BoxData[
      FormBox[
@@ -3375,7 +3398,7 @@ Cell[BoxData[
          {"\<\"Node\"\>", "\<\"Difficulty\"\>", "\<\"Intelligence\"\>", \
 "\<\"Grade\"\>", "\<\"SAT\"\>", "\<\"Letter\"\>"},
          {"\<\"Cardinality\"\>", "2", "2", "3", "2", "2"},
-         {"\<\"samiam\"\>", 
+         {"\<\"samiam (Directed)\"\>", 
           RowBox[{"{", 
            RowBox[{"0.6`", ",", "0.4`"}], "}"}], 
           RowBox[{"{", 
@@ -3386,7 +3409,7 @@ Cell[BoxData[
            RowBox[{"0.2`", ",", "0.8`"}], "}"}], 
           RowBox[{"{", 
            RowBox[{"0.23`", ",", "0.77`"}], "}"}]},
-         {"\<\"GWR distributions method\"\>", 
+         {"\<\"GWR distributions method (Directed)\"\>", 
           RowBox[{"{", 
            RowBox[{"0.6`", ",", "0.4`"}], "}"}], 
           RowBox[{"{", 
@@ -3397,7 +3420,7 @@ Cell[BoxData[
            RowBox[{"0.2`", ",", "0.8`"}], "}"}], 
           RowBox[{"{", 
            RowBox[{"0.23`", ",", "0.77`"}], "}"}]},
-         {"\<\"Compute Exact Marginals\"\>", 
+         {"\<\"Compute Exact Marginals (Undirected)\"\>", 
           RowBox[{"{", 
            RowBox[{"0.35`", ",", "0.65`"}], "}"}], 
           RowBox[{"{", 
@@ -3408,7 +3431,7 @@ Cell[BoxData[
            RowBox[{"0.06`", ",", "0.94`"}], "}"}], 
           RowBox[{"{", 
            RowBox[{"0.38`", ",", "0.62`"}], "}"}]},
-         {"\<\"Compute Exact Marginals Message Passing\"\>", 
+         {"\<\"Compute Exact Marginals Message Passing (Undirected)\"\>", 
           RowBox[{"{", 
            RowBox[{"0.35`", ",", "0.65`"}], "}"}], 
           RowBox[{"{", 
@@ -3419,7 +3442,7 @@ Cell[BoxData[
            RowBox[{"0.06`", ",", "0.94`"}], "}"}], 
           RowBox[{"{", 
            RowBox[{"0.38`", ",", "0.62`"}], "}"}]},
-         {"\<\"Compute Approx Marginals Message Passing\"\>", 
+         {"\<\"Compute Approx Marginals Message Passing (Undirected)\"\>", 
           RowBox[{"{", 
            RowBox[{"0.25`", ",", "0.75`"}], "}"}], 
           RowBox[{"{", 
@@ -3449,25 +3472,26 @@ Cell[BoxData[
         GridBoxFrame->{
          "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> RGBColor[0.2, 0.2, 0.2]}},
         
-        GridBoxItemSize->{"Columns" -> {28, 8, 8, 11, {8}}},
+        GridBoxItemSize->{"Columns" -> {36, 8, 8, 11, {8}}},
         GridBoxItemStyle->{"Columns" -> {{14}}, "Rows" -> {{14}}},
         GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0.8}}}],
        "Grid"], TextForm]], "InlineText",ExpressionUUID->
-     "336049fd-b823-492b-95fa-ab43604ad3c7"],
+     "ddd88411-579b-46e2-962a-06067600e559"],
     Text[
      Grid[{{"Marginals with Evidence of Intelligence = high", SpanFromLeft}, {
        "Node", "Difficulty", "Intelligence", "Grade", "SAT", "Letter"}, {
        "Cardinality", 2, 2, 3, 2, 2}, {
-       "samiam", {0.6, 0.4}, {0., 1.}, {0.74, 0.17, 0.09}, {0.2, 0.8}, {0.23, 
-        0.77}}, {
-       "GWR distributions method", {0.6, 0.4}, {0., 1.}, {0.74, 0.17, 0.09}, {
-        0.2, 0.8}, {0.23, 0.77}}, {
-       "Compute Exact Marginals", {0.35, 0.65}, {0., 1.}, {0.52, 0.34, 
-        0.15}, {0.06, 0.94}, {0.38, 0.62}}, {
-       "Compute Exact Marginals Message Passing", {0.35, 0.65}, {0., 1.}, {
-        0.52, 0.34, 0.15}, {0.06, 0.94}, {0.38, 0.62}}, {
-       "Compute Approx Marginals Message Passing", {0.25, 0.75}, {0., 1.}, {
-        0.76, 0.14, 0.11}, {0., 1.}, {0.06, 0.94}}}, Background -> {None, {
+       "samiam (Directed)", {0.6, 0.4}, {0., 1.}, {0.74, 0.17, 0.09}, {0.2, 
+        0.8}, {0.23, 0.77}}, {
+       "GWR distributions method (Directed)", {0.6, 0.4}, {0., 1.}, {0.74, 
+        0.17, 0.09}, {0.2, 0.8}, {0.23, 0.77}}, {
+       "Compute Exact Marginals (Undirected)", {0.35, 0.65}, {0., 1.}, {0.52, 
+        0.34, 0.15}, {0.06, 0.94}, {0.38, 0.62}}, {
+       "Compute Exact Marginals Message Passing (Undirected)", {0.35, 0.65}, {
+        0., 1.}, {0.52, 0.34, 0.15}, {0.06, 0.94}, {0.38, 0.62}}, {
+       "Compute Approx Marginals Message Passing (Undirected)", {0.25, 
+        0.75}, {0., 1.}, {0.76, 0.14, 0.11}, {0., 1.}, {0.06, 0.94}}}, 
+      Background -> {None, {
          RGBColor[0.97, 0.97, 1.], 
          RGBColor[1., 1., 0.9], {
           GrayLevel[1], 
@@ -3479,7 +3503,7 @@ Cell[BoxData[
          RGBColor[0.2, 0.2, 0.2], 
          RGBColor[0.2, 0.2, 0.2], {False}, 
          RGBColor[0.2, 0.2, 0.2]}}, Alignment -> {{Left, {Center}}}, 
-      ItemSize -> {{28, 8, 8, 11, {8}}}, Frame -> RGBColor[0.2, 0.2, 0.2], 
+      ItemSize -> {{36, 8, 8, 11, {8}}}, Frame -> RGBColor[0.2, 0.2, 0.2], 
       ItemStyle -> 14, Spacings -> {Automatic, 0.8}]]]}], "}"}]], "Output",
  CellChangeTimes->{{3.804898674400416*^9, 3.804898703128992*^9}, {
    3.804898738175004*^9, 3.804898784853795*^9}, {3.804898839326776*^9, 
@@ -3489,8 +3513,10 @@ Cell[BoxData[
    3.8048998888250113`*^9, 3.804899899999526*^9}, {3.804900703123674*^9, 
    3.804900715350075*^9}, 3.804900769198337*^9, {3.804906280124022*^9, 
    3.8049062998803177`*^9}, {3.804906361424755*^9, 3.8049063891533403`*^9}, 
-   3.80490798478363*^9, 3.804908087260762*^9, 3.8049085300981197`*^9},
- CellLabel->"Out[30]=",ExpressionUUID->"611351d7-fc16-472e-8ab1-11d36e02c23c"]
+   3.80490798478363*^9, 3.804908087260762*^9, 3.8049085300981197`*^9, 
+   3.804909239986637*^9, {3.8049386418272133`*^9, 3.804938655008465*^9}, {
+   3.8050457310081263`*^9, 3.805045745425372*^9}},
+ CellLabel->"Out[35]=",ExpressionUUID->"447acec9-1630-4776-9bd9-08e617e378ae"]
 }, Open  ]]
 },
 WindowSize->{1440., 761.25},
@@ -3514,17 +3540,18 @@ Notebook[{
 Cell[558, 20, 1918, 38, 108, "Text",ExpressionUUID->"cb0a4d9e-0db6-4381-8904-f4acd1eb13e5"],
 Cell[2479, 60, 140820, 2312, 392, "Text",ExpressionUUID->"e5eeb54d-ab68-4347-b6cf-80c96bebe8ed"],
 Cell[143302, 2374, 2230, 46, 157, "Text",ExpressionUUID->"5a85e222-3bcb-449f-b457-c28eb57b3431"],
-Cell[145535, 2422, 14670, 401, 750, "Input",ExpressionUUID->"ec7b57f0-b6a1-4bdb-8cb2-0f2a8944e4cb",
+Cell[145535, 2422, 14788, 403, 750, "Input",ExpressionUUID->"ec7b57f0-b6a1-4bdb-8cb2-0f2a8944e4cb",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[160230, 2827, 14463, 329, 516, "Input",ExpressionUUID->"2f6fdc73-ed79-4c5b-910f-8dc67c0f37d3"],
+Cell[160348, 2829, 14645, 334, 537, "Input",ExpressionUUID->"2f6fdc73-ed79-4c5b-910f-8dc67c0f37d3"],
+Cell[174996, 3165, 388, 9, 22, "Message",ExpressionUUID->"7e02c206-5847-438c-a6bc-4bc2d8fc646e"],
 Cell[CellGroupData[{
-Cell[174718, 3160, 985, 18, 23, "Print",ExpressionUUID->"78d35f0c-26fb-4982-944e-04c7661bdb96"],
-Cell[175706, 3180, 1201, 22, 23, "Print",ExpressionUUID->"f39c5029-c4cf-4a15-b012-f41d08b1aa1a"],
-Cell[176910, 3204, 987, 18, 23, "Print",ExpressionUUID->"3a50a5f5-f430-46c0-920f-d17c10a638f0"],
-Cell[177900, 3224, 1199, 22, 23, "Print",ExpressionUUID->"ac16bab1-d6b3-48bf-8c69-74aa7cb80d61"]
+Cell[175409, 3178, 1111, 19, 23, "Print",ExpressionUUID->"8a559fbc-924e-419d-901d-1c221dee4702"],
+Cell[176523, 3199, 1331, 24, 23, "Print",ExpressionUUID->"f15d3e77-36b0-4a82-84e6-c0aff7ce4ede"],
+Cell[177857, 3225, 1111, 19, 23, "Print",ExpressionUUID->"c9de0c56-077a-41bf-93e6-685d525997dc"],
+Cell[178971, 3246, 1327, 23, 23, "Print",ExpressionUUID->"cdbe7534-c443-4771-b255-208065cc847c"]
 }, Open  ]],
-Cell[179114, 3249, 10968, 243, 471, "Output",ExpressionUUID->"611351d7-fc16-472e-8ab1-11d36e02c23c"]
+Cell[180313, 3272, 11345, 246, 471, "Output",ExpressionUUID->"447acec9-1630-4776-9bd9-08e617e378ae"]
 }, Open  ]]
 }
 ]

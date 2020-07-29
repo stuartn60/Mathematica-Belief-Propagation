@@ -15,7 +15,7 @@ A second Belief Passing algorithm called Loopy Belief Propagation (computeApprox
 
 License matters
 
-The Belief Propagation Algorithms derive from Octave software I developed for Daphne Koller’s Stanford University Subject ‘Probabilistic Graphical Models’, Copyright (c) Daphne Koller, Stanford University, 2012.
+The Belief Propagation Algorithms originate with software I developed as part of Daphne Koller’s Stanford University Subject ‘Probabilistic Graphical Models’, Copyright (c) Daphne Koller, Stanford University, 2012.
 
 All code files and executable documents are with the license GPL 3.0. For details see http://www.gnu.org/licenses/
 

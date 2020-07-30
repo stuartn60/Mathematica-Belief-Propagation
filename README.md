@@ -34,7 +34,8 @@ Algorithms implementations are provided in Wolfram package files (“*.wl”). A
 
 Tests and illustrative use are provided in a Mathematica notebook files (“*.nb”), in PDF files, or in Markdown files.
 
-A test notebook is provided: beliefPropagationTests.nb (unit tests). 
+Two notebooks are provided: beliefPropagationTests.nb (unit tests) and gradeBook.nb (comparative methods). Currently the latter notebook is for illustration only. It requires procedures to establish factors for undirected graphs through sampling.
+
 Each notebook requires that the directory path be set to a working directory containing the Wolfram language package with test data in a subdirectiory.
 
 Enhancements

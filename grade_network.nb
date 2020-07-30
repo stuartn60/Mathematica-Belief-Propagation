@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    217722,       4140]
-NotebookOptionsPosition[    215407,       4098]
-NotebookOutlinePosition[    215841,       4115]
-CellTagsIndexPosition[    215798,       4112]
+NotebookDataLength[    188851,       3466]
+NotebookOptionsPosition[    187387,       3436]
+NotebookOutlinePosition[    187821,       3453]
+CellTagsIndexPosition[    187778,       3450]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2826,7 +2826,8 @@ sLhQPAyvvS5m4HqVcgFu64myCiJ+iBbYQNYn50fB+G06Th2TTlfCioSZJhiq
 Nm+Dtp17OmHNwFezEOKf0d8cGLNDZgWHOBb2kD+axIfZkpIYOJ4iu8QnVtb7
 SaBCr0gMI4ZnbVLlBkUXoUpuKYYLHx3Siog3BpTpsG+5XfiQWNVpI4L/ACFu
 thM=
-  "],ExpressionUUID->"ec7b57f0-b6a1-4bdb-8cb2-0f2a8944e4cb"],
+  "],
+ CellLabel->"In[12]:=",ExpressionUUID->"ec7b57f0-b6a1-4bdb-8cb2-0f2a8944e4cb"],
 
 Cell[CellGroupData[{
 
@@ -3095,8 +3096,9 @@ Graphs\>\"", ",",
    3.80506299425032*^9}, {3.8050636041330767`*^9, 3.8050636048649406`*^9}, {
    3.805063637196519*^9, 3.805063809936976*^9}, {3.805063918755712*^9, 
    3.805063933073732*^9}, {3.805063985339616*^9, 3.8050640204249783`*^9}},
- CellLabel->
-  "In[122]:=",ExpressionUUID->"2f6fdc73-ed79-4c5b-910f-8dc67c0f37d3"],
+ CellLabel->"In[23]:=",ExpressionUUID->"2f6fdc73-ed79-4c5b-910f-8dc67c0f37d3"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  StyleBox["\<\"Comparison of Bayesnets (samiam & Mathematica Distributions \
@@ -3114,27 +3116,11 @@ Graphs\"\>",
   3.8050628022912083`*^9, 3.8050628783389997`*^9, 3.8050629624683647`*^9, 
   3.805063011996664*^9, 3.805063200015177*^9, 3.805063243082924*^9, 
   3.805063330794203*^9, 3.8050634152553864`*^9, 3.805063457255969*^9, 
-  3.805063519051536*^9, 3.805063938957982*^9, 3.805064022134366*^9},
+  3.805063519051536*^9, 3.805063938957982*^9, 3.805064022134366*^9, 
+  3.805064482803495*^9, 3.805064718051064*^9},
  CellLabel->
   "During evaluation of \
-In[122]:=",ExpressionUUID->"9e7efacc-84b5-4789-a5ad-ad9eb21178cb"],
-
-Cell[BoxData[
- TemplateBox[{
-  "Attributes", "locked", 
-   "\"Symbol \\!\\(\\*RowBox[{\\\"beliefPropagation\\\"}]\\) is locked.\"", 2,
-    125, 66, 22939777593739597128, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.8050625764235573`*^9, 3.8050627619814253`*^9, 
-  3.805062802313287*^9, 3.8050628783415213`*^9, 3.805062962470182*^9, 
-  3.805063012008286*^9, 3.805063200017337*^9, 3.80506324308615*^9, 
-  3.805063330798311*^9, 3.805063415258326*^9, 3.8050634572600927`*^9, 
-  3.805063519053739*^9, 3.8050639389603567`*^9, 3.805064022136187*^9},
- CellLabel->
-  "During evaluation of \
-In[122]:=",ExpressionUUID->"e4708ac7-da20-47ed-9b1e-8ddb3e37f8fe"],
-
-Cell[CellGroupData[{
+In[23]:=",ExpressionUUID->"369fbf5e-aec9-4840-95e3-14992dd6f201"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -3145,28 +3131,30 @@ Cell[BoxData[
   3.8050628022912083`*^9, 3.8050628783389997`*^9, 3.8050629624683647`*^9, 
   3.805063011996664*^9, 3.805063200015177*^9, 3.805063243082924*^9, 
   3.805063330794203*^9, 3.8050634152553864`*^9, 3.805063457255969*^9, 
-  3.805063519051536*^9, 3.805063938957982*^9, 3.805064022163958*^9},
+  3.805063519051536*^9, 3.805063938957982*^9, 3.805064022134366*^9, 
+  3.805064482803495*^9, 3.805064718080521*^9},
  CellLabel->
   "During evaluation of \
-In[122]:=",ExpressionUUID->"fc8b48cf-21b3-436c-b593-a1d7f02eedf7"],
+In[23]:=",ExpressionUUID->"e784ef94-4922-472f-bbfc-6041d8eecb3b"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"Total number of messages passed: \"\>", "\[InvisibleSpace]", 
    "11", "\[InvisibleSpace]", "\<\" in \"\>", "\[InvisibleSpace]", 
-   "0.005178`4.165707039594828", "\[InvisibleSpace]", "\<\" seconds\"\>"}],
+   "0.005059`4.155609672904541", "\[InvisibleSpace]", "\<\" seconds\"\>"}],
   SequenceForm[
-  "Total number of messages passed: ", 11, " in ", 0.005178`4.165707039594828,
+  "Total number of messages passed: ", 11, " in ", 0.005059`4.155609672904541,
     " seconds"],
   Editable->False]], "Print",
  CellChangeTimes->{3.805062576400743*^9, 3.805062761959055*^9, 
   3.8050628022912083`*^9, 3.8050628783389997`*^9, 3.8050629624683647`*^9, 
   3.805063011996664*^9, 3.805063200015177*^9, 3.805063243082924*^9, 
   3.805063330794203*^9, 3.8050634152553864`*^9, 3.805063457255969*^9, 
-  3.805063519051536*^9, 3.805063938957982*^9, 3.805064022167721*^9},
+  3.805063519051536*^9, 3.805063938957982*^9, 3.805064022134366*^9, 
+  3.805064482803495*^9, 3.805064718082015*^9},
  CellLabel->
   "During evaluation of \
-In[122]:=",ExpressionUUID->"91bc0a93-fae4-44fe-94b0-7dd2886ae14e"],
+In[23]:=",ExpressionUUID->"16e06405-3f57-4e08-b247-1fb11127758c"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -3177,28 +3165,30 @@ Cell[BoxData[
   3.8050628022912083`*^9, 3.8050628783389997`*^9, 3.8050629624683647`*^9, 
   3.805063011996664*^9, 3.805063200015177*^9, 3.805063243082924*^9, 
   3.805063330794203*^9, 3.8050634152553864`*^9, 3.805063457255969*^9, 
-  3.805063519051536*^9, 3.805063938957982*^9, 3.805064022195241*^9},
+  3.805063519051536*^9, 3.805063938957982*^9, 3.805064022134366*^9, 
+  3.805064482803495*^9, 3.8050647181020727`*^9},
  CellLabel->
   "During evaluation of \
-In[122]:=",ExpressionUUID->"cdbed47d-03c2-44d5-99bf-63e843895164"],
+In[23]:=",ExpressionUUID->"71ca7f9b-3db5-4058-b735-7bf5c7b7aaae"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"Total number of messages passed: \"\>", "\[InvisibleSpace]", 
    "11", "\[InvisibleSpace]", "\<\" in \"\>", "\[InvisibleSpace]", 
-   "0.005263`4.172778363513251", "\[InvisibleSpace]", "\<\" seconds\"\>"}],
+   "0.004985`4.149210156143646", "\[InvisibleSpace]", "\<\" seconds\"\>"}],
   SequenceForm[
-  "Total number of messages passed: ", 11, " in ", 0.005263`4.172778363513251,
+  "Total number of messages passed: ", 11, " in ", 0.004985`4.149210156143646,
     " seconds"],
   Editable->False]], "Print",
  CellChangeTimes->{3.805062576400743*^9, 3.805062761959055*^9, 
   3.8050628022912083`*^9, 3.8050628783389997`*^9, 3.8050629624683647`*^9, 
   3.805063011996664*^9, 3.805063200015177*^9, 3.805063243082924*^9, 
   3.805063330794203*^9, 3.8050634152553864`*^9, 3.805063457255969*^9, 
-  3.805063519051536*^9, 3.805063938957982*^9, 3.805064022196423*^9},
+  3.805063519051536*^9, 3.805063938957982*^9, 3.805064022134366*^9, 
+  3.805064482803495*^9, 3.8050647181030617`*^9},
  CellLabel->
   "During evaluation of \
-In[122]:=",ExpressionUUID->"67949e4e-8d50-4fd0-b092-130eede0e19f"]
+In[23]:=",ExpressionUUID->"e84ef754-5426-457a-909a-418f8398fedb"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -3291,7 +3281,7 @@ Cell[BoxData[
         GridBoxItemStyle->{"Columns" -> {{14}}, "Rows" -> {{14}}},
         GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0.8}}}],
        "Grid"], TextForm]], "InlineText",ExpressionUUID->
-     "e40e91a8-1136-47d1-badd-bcea6f463870"],
+     "ced564df-9042-4d38-a02b-911a393f811b"],
     Text[
      Grid[{{"Marginals without Evidence", SpanFromLeft}, {
        "Node", "Difficulty", "Intelligence", "Grade", "SAT", "Letter"}, {
@@ -3407,7 +3397,7 @@ Cell[BoxData[
         GridBoxItemStyle->{"Columns" -> {{14}}, "Rows" -> {{14}}},
         GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0.8}}}],
        "Grid"], TextForm]], "InlineText",ExpressionUUID->
-     "4d6ce4c1-350b-47c9-b390-5d27a6eab64d"],
+     "829090a1-0a90-4ca0-bc2f-a64d924a2211"],
     Text[
      Grid[{{"Marginals with Evidence of Intelligence = high", SpanFromLeft}, {
        "Node", "Difficulty", "Intelligence", "Grade", "SAT", "Letter"}, {
@@ -3439,661 +3429,9 @@ Cell[BoxData[
  CellChangeTimes->{3.8050629624748783`*^9, 3.8050630121176*^9, 
   3.805063200068987*^9, 3.8050632431448*^9, 3.805063330851359*^9, 
   3.805063415263397*^9, 3.805063457293878*^9, 3.805063519112442*^9, 
-  3.8050639390448847`*^9, 3.805064022218938*^9},
- CellLabel->
-  "Out[130]=",ExpressionUUID->"65a5b7f4-6dd3-4d7a-8b95-dc409530aaec"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"Print", "[", 
-   RowBox[{"Style", "[", 
-    RowBox[{
-    "\"\<Demonstration of Incorrect Approach of Using Conditional \
-Probabilities as factors\>\"", ",", 
-     RowBox[{"{", 
-      RowBox[{"Larger", ",", "Bold", ",", " ", "Red"}], "}"}]}], "]"}], "]"}],
-   "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{
-     RowBox[{
-      RowBox[{
-       RowBox[{
-       "Although", " ", "incorrect", " ", "to", " ", "do", " ", "so"}], " ", 
-       "..."}], " ", "careful", " ", "inspection", " ", "of", " ", "CPD", " ",
-       "to", " ", "obtain", " ", "factor", " ", "value", " ", "sequence"}], 
-     " ", "..."}], " ", "where", " ", "the", " ", "first", " ", "arrival", 
-    " ", "node", " ", "varies", " ", "least", " ", "and", " ", "the", " ", 
-    "resulting", " ", "join", " ", "node", " ", "varies", " ", "most"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"grade", "=", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"d0", ",", "i0", ",", "g1", ",", "0.3"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"d0", ",", "i0", ",", "g2", ",", "0.4"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"d0", ",", "i0", ",", "g3", ",", "0.3"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"d0", ",", "i1", ",", "g1", ",", "0.9"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"d0", ",", "i1", ",", "g2", ",", "0.08"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"d0", ",", "i1", ",", "g3", ",", "0.02"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"d1", ",", "i0", ",", "g1", ",", "0.05"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"d1", ",", "i0", ",", "g2", ",", "0.25"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"d1", ",", "i0", ",", "g3", ",", "0.7"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"d1", ",", "i1", ",", "g1", ",", "0.5"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"d1", ",", "i1", ",", "g2", ",", "0.3"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"d1", ",", "i1", ",", "g3", ",", "0.2"}], "}"}]}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"factors", "=", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"{", "1", "}"}], ",", 
-       RowBox[{"{", "2", "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"0.6", ",", "0.4"}], "}"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"{", "2", "}"}], ",", 
-       RowBox[{"{", "2", "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"0.7", ",", "0.3"}], "}"}]}], "}"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"1", ",", "2", ",", "3"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"2", ",", "2", ",", "3"}], "}"}], ",", 
-       RowBox[{"Last", "/@", "grade"}]}], "}"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"2", ",", "4"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"2", ",", "2"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"0.95", ",", "0.05", ",", "0.2", ",", "0.8"}], "}"}]}], "}"}],
-      ",", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"3", ",", "5"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"3", ",", "2"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-        "0.1", ",", "0.9", ",", "0.4", ",", "0.6", ",", "0.99", ",", "0.01"}],
-         "}"}]}], "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"presentation", "[", 
-   RowBox[{"{", 
-    RowBox[{"title_", ",", "data_"}], "}"}], "]"}], ":=", 
-  RowBox[{"Text", "@", 
-   RowBox[{"Grid", "[", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"Fold", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"Prepend", "[", 
-         RowBox[{"#1", ",", "#2"}], "]"}], "&"}], ",", "\[IndentingNewLine]", 
-       
-       RowBox[{"MapThread", "[", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"Flatten", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{"#1", ",", 
-              RowBox[{"N", "@", 
-               RowBox[{"Round", "[", 
-                RowBox[{
-                 RowBox[{"Last", "/@", "#2"}], ",", 
-                 SuperscriptBox["10", 
-                  RowBox[{"-", "2"}]]}], "]"}]}]}], "}"}], ",", "1"}], "]"}], 
-          "&"}], ",", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-            "\"\<samiam (Directed)\>\"", ",", 
-             "\"\<GWR distributions method (Directed)\>\"", ",", 
-             "\"\<Compute Exact Marginals (Undirected)\>\"", ",", 
-             "\"\<Compute Exact Marginals Message Passing (Undirected)\>\"", 
-             ",", "\"\<Compute Approx Marginals Message Passing \
-(Undirected)\>\""}], "}"}], ",", "\[IndentingNewLine]", "data"}], "}"}]}], 
-        "]"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"Join", "[", 
-          RowBox[{
-           RowBox[{"{", "\"\<Cardinality\>\"", "}"}], ",", 
-           RowBox[{"Flatten", "[", 
-            RowBox[{"samiam", "[", 
-             RowBox[{"[", 
-              RowBox[{"All", ",", "2"}], "]"}], "]"}], "]"}]}], "]"}], ",", 
-         RowBox[{"Join", "[", 
-          RowBox[{
-           RowBox[{"{", "\"\<Node\>\"", "}"}], ",", 
-           RowBox[{"Flatten", "@", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{"First", "/@", "samiam"}], ")"}], "/.", 
-              RowBox[{"Thread", "[", 
-               RowBox[{
-                RowBox[{"Range", "@", 
-                 RowBox[{"Length", "@", "samiam"}]}], "\[Rule]", 
-                RowBox[{"{", 
-                 RowBox[{
-                 "\"\<Difficulty\>\"", ",", "\"\<Intelligence\>\"", ",", 
-                  "\"\<Grade\>\"", ",", "\"\<SAT\>\"", ",", 
-                  "\"\<Letter\>\""}], "}"}]}], "]"}]}], "}"}]}]}], "]"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"title", ",", "SpanFromLeft"}], "}"}]}], "}"}]}], "]"}], 
-     ",", "\[IndentingNewLine]", 
-     RowBox[{"Background", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"None", ",", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"Lighter", "[", 
-           RowBox[{"Blue", ",", ".97"}], "]"}], ",", 
-          RowBox[{"Lighter", "[", 
-           RowBox[{"Yellow", ",", ".9"}], "]"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"White", ",", 
-            RowBox[{"Lighter", "[", 
-             RowBox[{
-              RowBox[{"Blend", "[", 
-               RowBox[{"{", 
-                RowBox[{"Blue", ",", "Green"}], "}"}], "]"}], ",", ".8"}], 
-             "]"}]}], "}"}]}], "}"}]}], "}"}]}], ",", 
-     RowBox[{"Dividers", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"Darker", "[", 
-           RowBox[{"Gray", ",", ".6"}], "]"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"Lighter", "[", 
-            RowBox[{"Gray", ",", ".5"}], "]"}], "}"}], ",", 
-          RowBox[{"Darker", "[", 
-           RowBox[{"Gray", ",", ".6"}], "]"}]}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"Darker", "[", 
-           RowBox[{"Gray", ",", ".6"}], "]"}], ",", 
-          RowBox[{"Darker", "[", 
-           RowBox[{"Gray", ",", ".6"}], "]"}], ",", 
-          RowBox[{"Darker", "[", 
-           RowBox[{"Gray", ",", ".6"}], "]"}], ",", 
-          RowBox[{"{", "False", "}"}], ",", 
-          RowBox[{"Darker", "[", 
-           RowBox[{"Gray", ",", ".6"}], "]"}]}], "}"}]}], "}"}]}], ",", 
-     RowBox[{"Alignment", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"{", 
-        RowBox[{"Left", ",", 
-         RowBox[{"{", "Center", "}"}]}], "}"}], "}"}]}], ",", 
-     RowBox[{"ItemSize", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"{", 
-        RowBox[{"36", ",", "8", ",", "8", ",", "11", ",", 
-         RowBox[{"{", "8", "}"}]}], "}"}], "}"}]}], ",", 
-     RowBox[{"Frame", "\[Rule]", 
-      RowBox[{"Darker", "[", 
-       RowBox[{"Gray", ",", ".6"}], "]"}]}], ",", 
-     RowBox[{"ItemStyle", "\[Rule]", "14"}], ",", 
-     RowBox[{"Spacings", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"Automatic", ",", ".8"}], "}"}]}]}], 
-    "]"}]}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"data", "=", 
-    RowBox[{"{", 
-     RowBox[{"samiam", ",", "gwr", ",", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"computeMarginal", "[", 
-         RowBox[{
-          RowBox[{"{", "#", "}"}], ",", "factors", ",", 
-          RowBox[{"{", "}"}]}], "]"}], "&"}], "/@", 
-       RowBox[{"Range", "@", 
-        RowBox[{"Length", "@", "factors"}]}]}], ",", 
-      RowBox[{"computeExactMarginalsBP", "@", "factors"}], ",", 
-      RowBox[{"computeApproxMarginalsBP", "@", "factors"}]}], "}"}]}], ";"}], 
-  "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{
-    "To", " ", "submit", " ", "evidence", " ", "that", " ", "Intelligence"}], 
-    " ", "=", " ", 
-    RowBox[{
-    "high", " ", "set", " ", "node", " ", "2", " ", "to", " ", "state", " ", 
-     "2"}]}], "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"data1", "=", 
-   RowBox[{"{", 
-    RowBox[{"samiamIe1", ",", "gwrIe1", ",", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"computeMarginal", "[", 
-        RowBox[{
-         RowBox[{"{", "#", "}"}], ",", "factors", ",", 
-         RowBox[{"{", 
-          RowBox[{"{", 
-           RowBox[{"2", ",", "2"}], "}"}], "}"}]}], "]"}], "&"}], "/@", 
-      RowBox[{"Range", "@", 
-       RowBox[{"Length", "@", "factors"}]}]}], ",", 
-     RowBox[{"computeExactMarginalsBP", "[", 
-      RowBox[{"factors", ",", 
-       RowBox[{"{", 
-        RowBox[{"{", 
-         RowBox[{"2", ",", "2"}], "}"}], "}"}]}], "]"}], ",", 
-     RowBox[{"computeApproxMarginalsBP", "[", 
-      RowBox[{"factors", ",", 
-       RowBox[{"{", 
-        RowBox[{"{", 
-         RowBox[{"2", ",", "2"}], "}"}], "}"}]}], "]"}]}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{"presentation", "/@", 
-  RowBox[{"{", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{"\"\<Marginals without Evidence\>\"", ",", "data"}], "}"}], ",", 
-    
-    RowBox[{"{", 
-     RowBox[{
-     "\"\<Marginals with Evidence of Intelligence = high\>\"", ",", "data1"}],
-      "}"}]}], "}"}]}]}], "Input",
- CellChangeTimes->{{3.739825384367751*^9, 3.739825384374673*^9}, {
-   3.7398254145341463`*^9, 3.739825424405411*^9}, {3.739825465837337*^9, 
-   3.739825559139292*^9}, {3.7398256118551817`*^9, 3.7398256922401648`*^9}, {
-   3.739825741329471*^9, 3.739825760880368*^9}, {3.739825924828109*^9, 
-   3.739825934320303*^9}, {3.7398259666243067`*^9, 3.739826020245174*^9}, {
-   3.739826187648551*^9, 3.739826216531418*^9}, {3.739826825488327*^9, 
-   3.739826871936975*^9}, {3.7398380430451736`*^9, 3.739838061443103*^9}, {
-   3.80120913065298*^9, 3.801209193855136*^9}, {3.801209228067114*^9, 
-   3.801209240928162*^9}, {3.801209281324597*^9, 3.801209350357085*^9}, {
-   3.801209383359417*^9, 3.8012094191837482`*^9}, {3.801209545677033*^9, 
-   3.801209548579097*^9}, {3.801209656559547*^9, 3.801209675184885*^9}, {
-   3.801209723666337*^9, 3.801209952765794*^9}, {3.801210208616662*^9, 
-   3.8012102157902117`*^9}, {3.8012103835776463`*^9, 
-   3.8012104527131443`*^9}, {3.80121051779812*^9, 3.801210537352581*^9}, {
-   3.801210616080811*^9, 3.801210625642638*^9}, {3.8012106567125177`*^9, 
-   3.8012106621180058`*^9}, {3.801210720027289*^9, 3.801210733001917*^9}, {
-   3.801211036592647*^9, 3.801211103415803*^9}, {3.801211761485097*^9, 
-   3.801211820068336*^9}, {3.801446897974372*^9, 3.8014469054522963`*^9}, {
-   3.8016464175243998`*^9, 3.8016464348143473`*^9}, {3.804888506529513*^9, 
-   3.804888968934005*^9}, {3.804889003304558*^9, 3.80488901645229*^9}, {
-   3.804889054236298*^9, 3.804889075808457*^9}, {3.804889134869069*^9, 
-   3.804889266183741*^9}, {3.804889378063986*^9, 3.8048894182656717`*^9}, {
-   3.804889497422101*^9, 3.804889498333799*^9}, {3.804889537577592*^9, 
-   3.804889628146913*^9}, {3.804889862617834*^9, 3.804889863406829*^9}, {
-   3.804890242224698*^9, 3.804890340968933*^9}, {3.804891599826652*^9, 
-   3.8048918984228897`*^9}, {3.8048919444628963`*^9, 3.804891966544359*^9}, {
-   3.8048919965989027`*^9, 3.804891997287272*^9}, {3.8048923270310793`*^9, 
-   3.804892421257756*^9}, {3.804892481119343*^9, 3.804892483531164*^9}, {
-   3.804892580517778*^9, 3.804892585808526*^9}, {3.80489281177752*^9, 
-   3.804892819360786*^9}, {3.804893028491269*^9, 3.804893054113523*^9}, {
-   3.80489341055518*^9, 3.804893426573099*^9}, {3.804893500208191*^9, 
-   3.804893501520199*^9}, {3.804893556228878*^9, 3.8048935681505623`*^9}, {
-   3.804893685416683*^9, 3.804893685884926*^9}, 3.804896303631568*^9, {
-   3.8048966588907757`*^9, 3.804896691412586*^9}, {3.8048968084037123`*^9, 
-   3.804896876469081*^9}, {3.8048969123676147`*^9, 3.8048969307398863`*^9}, {
-   3.804896967747023*^9, 3.8048970257733307`*^9}, {3.8048970625004673`*^9, 
-   3.80489720621587*^9}, {3.804897237389944*^9, 3.804897317524136*^9}, {
-   3.804898027190048*^9, 3.80489805205057*^9}, {3.804898099000227*^9, 
-   3.804898115453774*^9}, {3.8048981507217627`*^9, 3.8048982058162193`*^9}, {
-   3.804898242618964*^9, 3.8048984333364153`*^9}, {3.8048984758922358`*^9, 
-   3.80489855721414*^9}, {3.804898623999888*^9, 3.8048987024298267`*^9}, {
-   3.804898734605851*^9, 3.804898784033476*^9}, {3.804898835614709*^9, 
-   3.8048988523855143`*^9}, {3.804898884595306*^9, 3.804898903857832*^9}, {
-   3.804898942016436*^9, 3.804898970301264*^9}, 3.8048990030935907`*^9, {
-   3.8048990495300426`*^9, 3.804899077624442*^9}, {3.804899246386567*^9, 
-   3.804899255536153*^9}, {3.804899606662025*^9, 3.804899687518754*^9}, {
-   3.804899727449959*^9, 3.804899821654624*^9}, {3.804899878614937*^9, 
-   3.804899899409759*^9}, {3.80490071030937*^9, 3.804900712453945*^9}, {
-   3.804900764650448*^9, 3.804900766861825*^9}, {3.804906271887236*^9, 
-   3.804906298694747*^9}, {3.804906377632227*^9, 3.804906387946177*^9}, {
-   3.804908079345544*^9, 3.804908085297933*^9}, {3.804908155239045*^9, 
-   3.804908225170965*^9}, {3.804908390566423*^9, 3.8049084910508213`*^9}, {
-   3.8050456393475113`*^9, 3.805045744646256*^9}, {3.805060554847036*^9, 
-   3.8050608558909903`*^9}, {3.8050624084154167`*^9, 3.805062440525818*^9}, {
-   3.805063819245716*^9, 3.805063880771558*^9}},
- CellLabel->
-  "In[131]:=",ExpressionUUID->"d995f00a-963c-4faf-be9a-adef6daf0169"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- StyleBox["\<\"Demonstration of Incorrect Approach of Using Conditional \
-Probabilities as factors\"\>",
-  StripOnInput->False,
-  LineColor->RGBColor[1, 0, 0],
-  FrontFaceColor->RGBColor[1, 0, 0],
-  BackFaceColor->RGBColor[1, 0, 0],
-  GraphicsColor->RGBColor[1, 0, 0],
-  FontSize->Larger,
-  FontWeight->Bold,
-  FontColor->RGBColor[1, 0, 0]]], "Print",
- CellChangeTimes->{3.8050607299387493`*^9, 3.805060858586596*^9, 
-  3.805063882194683*^9, 3.805064032600728*^9},
- CellLabel->
-  "During evaluation of \
-In[131]:=",ExpressionUUID->"f7c59169-b5a6-42b8-8f70-e67ee0c125a2"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"LBP Messages Passed: \"\>", "\[InvisibleSpace]", "11"}],
-  SequenceForm["LBP Messages Passed: ", 11],
-  Editable->False]], "Print",
- CellChangeTimes->{3.8050607299387493`*^9, 3.805060858586596*^9, 
-  3.805063882194683*^9, 3.8050640326296177`*^9},
- CellLabel->
-  "During evaluation of \
-In[131]:=",ExpressionUUID->"b4f4c7dd-e5d9-421a-95cd-b8c5e4066aee"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"Total number of messages passed: \"\>", "\[InvisibleSpace]", 
-   "11", "\[InvisibleSpace]", "\<\" in \"\>", "\[InvisibleSpace]", 
-   "0.005091`4.158348090533312", "\[InvisibleSpace]", "\<\" seconds\"\>"}],
-  SequenceForm[
-  "Total number of messages passed: ", 11, " in ", 0.005091`4.158348090533312,
-    " seconds"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.8050607299387493`*^9, 3.805060858586596*^9, 
-  3.805063882194683*^9, 3.8050640326315193`*^9},
- CellLabel->
-  "During evaluation of \
-In[131]:=",ExpressionUUID->"192911e1-d156-4244-9e6c-e3d5f44aecde"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"LBP Messages Passed: \"\>", "\[InvisibleSpace]", "11"}],
-  SequenceForm["LBP Messages Passed: ", 11],
-  Editable->False]], "Print",
- CellChangeTimes->{3.8050607299387493`*^9, 3.805060858586596*^9, 
-  3.805063882194683*^9, 3.80506403265737*^9},
- CellLabel->
-  "During evaluation of \
-In[131]:=",ExpressionUUID->"4f6bdb6d-aced-421c-a53e-ff4ed33a2494"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"Total number of messages passed: \"\>", "\[InvisibleSpace]", 
-   "11", "\[InvisibleSpace]", "\<\" in \"\>", "\[InvisibleSpace]", 
-   "0.005297`4.1755749664315704", "\[InvisibleSpace]", "\<\" seconds\"\>"}],
-  SequenceForm[
-  "Total number of messages passed: ", 11, " in ", 
-   0.005297`4.1755749664315704, " seconds"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.8050607299387493`*^9, 3.805060858586596*^9, 
-  3.805063882194683*^9, 3.8050640326587887`*^9},
- CellLabel->
-  "During evaluation of \
-In[131]:=",ExpressionUUID->"2063e365-1be2-4776-aa5e-bee31d238325"]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   InterpretationBox[Cell[BoxData[
-     FormBox[
-      TagBox[GridBox[{
-         {"\<\"Marginals without Evidence\"\>", "\[SpanFromLeft]", 
-          "\[SpanFromLeft]", "\[SpanFromLeft]", "\[SpanFromLeft]", 
-          "\[SpanFromLeft]"},
-         {"\<\"Node\"\>", "\<\"Difficulty\"\>", "\<\"Intelligence\"\>", \
-"\<\"Grade\"\>", "\<\"SAT\"\>", "\<\"Letter\"\>"},
-         {"\<\"Cardinality\"\>", "2", "2", "3", "2", "2"},
-         {"\<\"samiam (Directed)\"\>", 
-          RowBox[{"{", 
-           RowBox[{"0.6`", ",", "0.4`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.7`", ",", "0.3`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.36`", ",", "0.29`", ",", "0.35`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.72`", ",", "0.28`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.5`", ",", "0.5`"}], "}"}]},
-         {"\<\"GWR distributions method (Directed)\"\>", 
-          RowBox[{"{", 
-           RowBox[{"0.6`", ",", "0.4`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.7`", ",", "0.3`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.36`", ",", "0.29`", ",", "0.35`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.72`", ",", "0.28`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.5`", ",", "0.5`"}], "}"}]},
-         {"\<\"Compute Exact Marginals (Undirected)\"\>", 
-          RowBox[{"{", 
-           RowBox[{"0.57`", ",", "0.43`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.72`", ",", "0.28`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.43`", ",", "0.22`", ",", "0.35`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.61`", ",", "0.39`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.51`", ",", "0.49`"}], "}"}]},
-         {"\<\"Compute Exact Marginals Message Passing (Undirected)\"\>", 
-          RowBox[{"{", 
-           RowBox[{"0.57`", ",", "0.43`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.72`", ",", "0.28`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.43`", ",", "0.22`", ",", "0.35`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.61`", ",", "0.39`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.51`", ",", "0.49`"}], "}"}]},
-         {"\<\"Compute Approx Marginals Message Passing (Undirected)\"\>", 
-          RowBox[{"{", 
-           RowBox[{"0.69`", ",", "0.31`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.76`", ",", "0.24`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.35`", ",", "0.04`", ",", "0.61`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.85`", ",", "0.15`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.8`", ",", "0.2`"}], "}"}]}
-        },
-        AutoDelete->False,
-        GridBoxAlignment->{"Columns" -> {Left, {Center}}},
-        GridBoxBackground->{"Columns" -> {{None}}, "Rows" -> {
-            RGBColor[0.97, 0.97, 1.], 
-            RGBColor[1., 1., 0.9], {
-             GrayLevel[1], 
-             RGBColor[0.8, 0.9, 0.9]}}},
-        GridBoxDividers->{"Columns" -> {
-            RGBColor[0.2, 0.2, 0.2], {
-             RGBColor[0.75, 0.75, 0.75]}, 
-            RGBColor[0.2, 0.2, 0.2]}, "Rows" -> {
-            RGBColor[0.2, 0.2, 0.2], 
-            RGBColor[0.2, 0.2, 0.2], 
-            RGBColor[0.2, 0.2, 0.2], {False}, 
-            RGBColor[0.2, 0.2, 0.2]}},
-        GridBoxFrame->{
-         "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> RGBColor[0.2, 0.2, 0.2]}},
-        
-        GridBoxItemSize->{"Columns" -> {36, 8, 8, 11, {8}}},
-        GridBoxItemStyle->{"Columns" -> {{14}}, "Rows" -> {{14}}},
-        GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0.8}}}],
-       "Grid"], TextForm]], "InlineText",ExpressionUUID->
-     "72e5a12c-027b-4e6c-9144-7e4a6743ea62"],
-    Text[
-     Grid[{{"Marginals without Evidence", SpanFromLeft}, {
-       "Node", "Difficulty", "Intelligence", "Grade", "SAT", "Letter"}, {
-       "Cardinality", 2, 2, 3, 2, 2}, {
-       "samiam (Directed)", {0.6, 0.4}, {0.7, 0.3}, {0.36, 0.29, 0.35}, {0.72,
-         0.28}, {0.5, 0.5}}, {
-       "GWR distributions method (Directed)", {0.6, 0.4}, {0.7, 0.3}, {0.36, 
-        0.29, 0.35}, {0.72, 0.28}, {0.5, 0.5}}, {
-       "Compute Exact Marginals (Undirected)", {0.57, 0.43}, {0.72, 0.28}, {
-        0.43, 0.22, 0.35}, {0.61, 0.39}, {0.51, 0.49}}, {
-       "Compute Exact Marginals Message Passing (Undirected)", {0.57, 0.43}, {
-        0.72, 0.28}, {0.43, 0.22, 0.35}, {0.61, 0.39}, {0.51, 0.49}}, {
-       "Compute Approx Marginals Message Passing (Undirected)", {0.69, 
-        0.31}, {0.76, 0.24}, {0.35, 0.04, 0.61}, {0.85, 0.15}, {0.8, 0.2}}}, 
-      Background -> {None, {
-         RGBColor[0.97, 0.97, 1.], 
-         RGBColor[1., 1., 0.9], {
-          GrayLevel[1], 
-          RGBColor[0.8, 0.9, 0.9]}}}, Dividers -> {{
-         RGBColor[0.2, 0.2, 0.2], {
-          RGBColor[0.75, 0.75, 0.75]}, 
-         RGBColor[0.2, 0.2, 0.2]}, {
-         RGBColor[0.2, 0.2, 0.2], 
-         RGBColor[0.2, 0.2, 0.2], 
-         RGBColor[0.2, 0.2, 0.2], {False}, 
-         RGBColor[0.2, 0.2, 0.2]}}, Alignment -> {{Left, {Center}}}, 
-      ItemSize -> {{36, 8, 8, 11, {8}}}, Frame -> RGBColor[0.2, 0.2, 0.2], 
-      ItemStyle -> 14, Spacings -> {Automatic, 0.8}]]], ",", 
-   InterpretationBox[Cell[BoxData[
-     FormBox[
-      TagBox[GridBox[{
-         {"\<\"Marginals with Evidence of Intelligence = high\"\>", 
-          "\[SpanFromLeft]", "\[SpanFromLeft]", "\[SpanFromLeft]", 
-          "\[SpanFromLeft]", "\[SpanFromLeft]"},
-         {"\<\"Node\"\>", "\<\"Difficulty\"\>", "\<\"Intelligence\"\>", \
-"\<\"Grade\"\>", "\<\"SAT\"\>", "\<\"Letter\"\>"},
-         {"\<\"Cardinality\"\>", "2", "2", "3", "2", "2"},
-         {"\<\"samiam (Directed)\"\>", 
-          RowBox[{"{", 
-           RowBox[{"0.6`", ",", "0.4`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.`", ",", "1.`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.74`", ",", "0.17`", ",", "0.09`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.2`", ",", "0.8`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.23`", ",", "0.77`"}], "}"}]},
-         {"\<\"GWR distributions method (Directed)\"\>", 
-          RowBox[{"{", 
-           RowBox[{"0.6`", ",", "0.4`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.`", ",", "1.`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.74`", ",", "0.17`", ",", "0.09`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.2`", ",", "0.8`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.23`", ",", "0.77`"}], "}"}]},
-         {"\<\"Compute Exact Marginals (Undirected)\"\>", 
-          RowBox[{"{", 
-           RowBox[{"0.35`", ",", "0.65`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.`", ",", "1.`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.52`", ",", "0.34`", ",", "0.15`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.06`", ",", "0.94`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.38`", ",", "0.62`"}], "}"}]},
-         {"\<\"Compute Exact Marginals Message Passing (Undirected)\"\>", 
-          RowBox[{"{", 
-           RowBox[{"0.35`", ",", "0.65`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.`", ",", "1.`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.52`", ",", "0.34`", ",", "0.15`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.06`", ",", "0.94`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.38`", ",", "0.62`"}], "}"}]},
-         {"\<\"Compute Approx Marginals Message Passing (Undirected)\"\>", 
-          RowBox[{"{", 
-           RowBox[{"0.25`", ",", "0.75`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.`", ",", "1.`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.76`", ",", "0.14`", ",", "0.11`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.`", ",", "1.`"}], "}"}], 
-          RowBox[{"{", 
-           RowBox[{"0.06`", ",", "0.94`"}], "}"}]}
-        },
-        AutoDelete->False,
-        GridBoxAlignment->{"Columns" -> {Left, {Center}}},
-        GridBoxBackground->{"Columns" -> {{None}}, "Rows" -> {
-            RGBColor[0.97, 0.97, 1.], 
-            RGBColor[1., 1., 0.9], {
-             GrayLevel[1], 
-             RGBColor[0.8, 0.9, 0.9]}}},
-        GridBoxDividers->{"Columns" -> {
-            RGBColor[0.2, 0.2, 0.2], {
-             RGBColor[0.75, 0.75, 0.75]}, 
-            RGBColor[0.2, 0.2, 0.2]}, "Rows" -> {
-            RGBColor[0.2, 0.2, 0.2], 
-            RGBColor[0.2, 0.2, 0.2], 
-            RGBColor[0.2, 0.2, 0.2], {False}, 
-            RGBColor[0.2, 0.2, 0.2]}},
-        GridBoxFrame->{
-         "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> RGBColor[0.2, 0.2, 0.2]}},
-        
-        GridBoxItemSize->{"Columns" -> {36, 8, 8, 11, {8}}},
-        GridBoxItemStyle->{"Columns" -> {{14}}, "Rows" -> {{14}}},
-        GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0.8}}}],
-       "Grid"], TextForm]], "InlineText",ExpressionUUID->
-     "c3cdbdc4-5970-4e02-8a3d-8c602bcf6247"],
-    Text[
-     Grid[{{"Marginals with Evidence of Intelligence = high", SpanFromLeft}, {
-       "Node", "Difficulty", "Intelligence", "Grade", "SAT", "Letter"}, {
-       "Cardinality", 2, 2, 3, 2, 2}, {
-       "samiam (Directed)", {0.6, 0.4}, {0., 1.}, {0.74, 0.17, 0.09}, {0.2, 
-        0.8}, {0.23, 0.77}}, {
-       "GWR distributions method (Directed)", {0.6, 0.4}, {0., 1.}, {0.74, 
-        0.17, 0.09}, {0.2, 0.8}, {0.23, 0.77}}, {
-       "Compute Exact Marginals (Undirected)", {0.35, 0.65}, {0., 1.}, {0.52, 
-        0.34, 0.15}, {0.06, 0.94}, {0.38, 0.62}}, {
-       "Compute Exact Marginals Message Passing (Undirected)", {0.35, 0.65}, {
-        0., 1.}, {0.52, 0.34, 0.15}, {0.06, 0.94}, {0.38, 0.62}}, {
-       "Compute Approx Marginals Message Passing (Undirected)", {0.25, 
-        0.75}, {0., 1.}, {0.76, 0.14, 0.11}, {0., 1.}, {0.06, 0.94}}}, 
-      Background -> {None, {
-         RGBColor[0.97, 0.97, 1.], 
-         RGBColor[1., 1., 0.9], {
-          GrayLevel[1], 
-          RGBColor[0.8, 0.9, 0.9]}}}, Dividers -> {{
-         RGBColor[0.2, 0.2, 0.2], {
-          RGBColor[0.75, 0.75, 0.75]}, 
-         RGBColor[0.2, 0.2, 0.2]}, {
-         RGBColor[0.2, 0.2, 0.2], 
-         RGBColor[0.2, 0.2, 0.2], 
-         RGBColor[0.2, 0.2, 0.2], {False}, 
-         RGBColor[0.2, 0.2, 0.2]}}, Alignment -> {{Left, {Center}}}, 
-      ItemSize -> {{36, 8, 8, 11, {8}}}, Frame -> RGBColor[0.2, 0.2, 0.2], 
-      ItemStyle -> 14, Spacings -> {Automatic, 0.8}]]]}], "}"}]], "Output",
- CellChangeTimes->{3.80506073003892*^9, 3.805060858659511*^9, 
-  3.805063882266755*^9, 3.805064032660584*^9},
- CellLabel->
-  "Out[137]=",ExpressionUUID->"dfac3d3a-94db-462d-a723-5f81b3fff1dd"]
+  3.8050639390448847`*^9, 3.805064022218938*^9, 3.805064482903358*^9, 
+  3.805064718120962*^9},
+ CellLabel->"Out[31]=",ExpressionUUID->"ae8d4cb9-6a73-4c0f-b9a1-6d630d7a73c3"]
 }, Open  ]]
 },
 WindowSize->{1440., 761.25},
@@ -4117,30 +3455,18 @@ Notebook[{
 Cell[558, 20, 1918, 38, 108, "Text",ExpressionUUID->"cb0a4d9e-0db6-4381-8904-f4acd1eb13e5"],
 Cell[2479, 60, 140820, 2312, 392, "Text",ExpressionUUID->"e5eeb54d-ab68-4347-b6cf-80c96bebe8ed"],
 Cell[143302, 2374, 2230, 46, 157, "Text",ExpressionUUID->"5a85e222-3bcb-449f-b457-c28eb57b3431"],
-Cell[145535, 2422, 14863, 406, 750, "Input",ExpressionUUID->"ec7b57f0-b6a1-4bdb-8cb2-0f2a8944e4cb",
+Cell[145535, 2422, 14887, 407, 750, "Input",ExpressionUUID->"ec7b57f0-b6a1-4bdb-8cb2-0f2a8944e4cb",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[160423, 2832, 11921, 266, 454, "Input",ExpressionUUID->"2f6fdc73-ed79-4c5b-910f-8dc67c0f37d3"],
-Cell[172347, 3100, 883, 19, 25, "Print",ExpressionUUID->"9e7efacc-84b5-4789-a5ad-ad9eb21178cb"],
-Cell[173233, 3121, 675, 13, 22, "Message",ExpressionUUID->"e4708ac7-da20-47ed-9b1e-8ddb3e37f8fe"],
+Cell[160447, 2833, 11917, 265, 454, "Input",ExpressionUUID->"2f6fdc73-ed79-4c5b-910f-8dc67c0f37d3"],
 Cell[CellGroupData[{
-Cell[173933, 3138, 634, 12, 23, "Print",ExpressionUUID->"fc8b48cf-21b3-436c-b593-a1d7f02eedf7"],
-Cell[174570, 3152, 850, 16, 23, "Print",ExpressionUUID->"91bc0a93-fae4-44fe-94b0-7dd2886ae14e"],
-Cell[175423, 3170, 634, 12, 23, "Print",ExpressionUUID->"cdbed47d-03c2-44d5-99bf-63e843895164"],
-Cell[176060, 3184, 850, 16, 23, "Print",ExpressionUUID->"67949e4e-8d50-4fd0-b092-130eede0e19f"]
+Cell[172389, 3102, 929, 20, 25, "Print",ExpressionUUID->"369fbf5e-aec9-4840-95e3-14992dd6f201"],
+Cell[173321, 3124, 680, 13, 23, "Print",ExpressionUUID->"e784ef94-4922-472f-bbfc-6041d8eecb3b"],
+Cell[174004, 3139, 896, 17, 23, "Print",ExpressionUUID->"16e06405-3f57-4e08-b247-1fb11127758c"],
+Cell[174903, 3158, 682, 13, 23, "Print",ExpressionUUID->"71ca7f9b-3db5-4058-b735-7bf5c7b7aaae"],
+Cell[175588, 3173, 898, 17, 23, "Print",ExpressionUUID->"e84ef754-5426-457a-909a-418f8398fedb"]
 }, Open  ]],
-Cell[176925, 3203, 10827, 240, 448, "Output",ExpressionUUID->"65a5b7f4-6dd3-4d7a-8b95-dc409530aaec"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[187789, 3448, 14255, 335, 495, "Input",ExpressionUUID->"d995f00a-963c-4faf-be9a-adef6daf0169"],
-Cell[CellGroupData[{
-Cell[202069, 3787, 584, 15, 25, "Print",ExpressionUUID->"f7c59169-b5a6-42b8-8f70-e67ee0c125a2"],
-Cell[202656, 3804, 401, 9, 23, "Print",ExpressionUUID->"b4f4c7dd-e5d9-421a-95cd-b8c5e4066aee"],
-Cell[203060, 3815, 617, 13, 23, "Print",ExpressionUUID->"192911e1-d156-4244-9e6c-e3d5f44aecde"],
-Cell[203680, 3830, 398, 9, 23, "Print",ExpressionUUID->"4f6bdb6d-aced-421c-a53e-ff4ed33a2494"],
-Cell[204081, 3841, 619, 13, 23, "Print",ExpressionUUID->"2063e365-1be2-4776-aa5e-bee31d238325"]
-}, Open  ]],
-Cell[204715, 3857, 10676, 238, 471, "Output",ExpressionUUID->"dfac3d3a-94db-462d-a723-5f81b3fff1dd"]
+Cell[176501, 3193, 10870, 240, 471, "Output",ExpressionUUID->"ae8d4cb9-6a73-4c0f-b9a1-6d630d7a73c3"]
 }, Open  ]]
 }
 ]

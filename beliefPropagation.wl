@@ -97,6 +97,10 @@ computeApproxMarginalsBP::usage ="computeApproxMarginalsBP[f,e:{},isMax:False,us
  ... if isMax is True the algorithm is MaxProduct (Maximum a Posteriori) with output unnormalised natural logarithms
  ... if useSmartMP is True then an enhanced approach is used to obtain the next message cluster for processing
  ... default threshhold for convergence is 10^-6";
+convertSamiamNetwork::usage ="convertSamiamNetwork[file] converts a SAMAIM hugin .net file to factors
+ ... return a list of SAMIAM node names and list of factors";
+renameFactors::usage ="renameFactors[factors,list] renames the numerical factors and sorts the factors into canonical order
+ ... list is a list of pairs whose node numbers are to be swapped e.g. {{1,2}},{3,4}}";
 Begin["`Private`"];
 repMat[a_,m_,n_]:=If[Length@Dimensions@a==1,ArrayFlatten@Table[{a},m,n],ArrayFlatten@Table[a,m,n]]
 cumProduct[list_]:=FoldList[Times,list]
@@ -279,6 +283,35 @@ clusterGraphCalibrate[p_,isMax_,useSmartMP_,threshhold_:10^-6]:=Module[{clusterE
 	{m,Length@pos}];
 	{clusterList,messages}]
 computeApproxMarginalsBP[f_,e_:{},isMax_:False,useSmartMP_:False,threshhold_:10^-6]:=computeMarginalsBP[First@clusterGraphCalibrate[createClusterGraph[f,e],isMax,useSmartMP,threshhold],isMax]
+convertSamiamNetwork[file_]:=Module[{str,txt,lenNodes,pos1,pos1a,pos2,pos3,pos4,pos5,pos6,states,nodesAndPotentials,values,nodeSubst,cardSubst,vars,varsOrdering,cards,factors},
+	(*file is a SAMIAM Hugin .net file*)
+	str=OpenRead[file];txt=ReadString[str];Close@str;
+	lenNodes=Length@StringPosition[txt,"node "];
+	pos1=Join[First/@StringPosition[txt,"node "],First/@StringPosition[txt,"potential "],{StringLength[txt]}];
+	pos1a=Join[1+Last/@StringPosition[txt,"node "],3+Last/@StringPosition[txt,"potential "],{StringLength[txt]}];
+	pos2=StringTake[txt,#]&/@Transpose@{Most@pos1,Rest@pos1-1};
+	pos3=Transpose@{10+First/@StringPosition[txt,"states = "],-6+First/@StringPosition[txt,"position = "]};
+	states=StringSplit[StringReplace[StringTake[txt,#],{"\""->""}]," "]&/@pos3;
+	pos4=Transpose@{Most@pos1a,-2+Rest@(First/@StringPosition[txt,"{"])};
+	nodesAndPotentials=StringReplace[StringTake[txt,#]&/@pos4,{" | )"->""," | "->","," )"->""," "->","," "->""}];
+	pos5=Last/@StringPosition[txt,"data = "];
+	pos6=Transpose@{2+Last/@StringPosition[txt,"data = "],-1+(First/@Select[StringPosition[txt,";\n}"],First@#>First@pos5&])};
+	values=ToExpression/@Flatten/@(StringCases[#,NumberString]&/@StringSplit[StringTake[txt,#],"\n"]&/@pos6);
+	nodeSubst=Thread[nodesAndPotentials[[;;lenNodes]]->Range@lenNodes];
+	cardSubst=Thread[nodesAndPotentials[[;;lenNodes]]->Length/@states];
+	(*Reorder vars & cards because SAMIAM is in row major order*)
+	vars=StringSplit[#,","]/.nodeSubst&/@nodesAndPotentials[[lenNodes+1;;]];
+	varsOrdering=RotateRight@Ordering@#&/@vars;
+	cards=StringSplit[#,","]/.cardSubst&/@nodesAndPotentials[[lenNodes+1;;]];
+	vars=MapThread[#1[[#2]]&,{vars,varsOrdering}];
+	cards=MapThread[#1[[#2]]&,{cards,varsOrdering}];
+	factors={nodesAndPotentials[[;;lenNodes]],Join[Thread[{vars}],Thread[{cards}],Thread[{values}],2]}]
+renameFactors[factors_,list_]:=Module[{vars1,vars2,vars},
+	vars1=Union@Join[First/@list,Last/@list];
+	vars2="v"<>ToString@#&/@vars1;
+	vars=(First/@factors)/.Thread[vars1->vars2];
+	SortBy[Join[Thread[{vars}]/.Join[Thread["v"<>ToString@#&/@(First/@list)->Last/@list],Thread["v"<>ToString@#&/@(Last/@list)->First/@list]],
+	factors[[All,2;;-1]],2],First@First@#&]]
 SetAttributes[beliefPropagation,{Protected,ReadProtected,Locked}]
 End[];
 EndPackage[]

@@ -102,16 +102,12 @@ convertSamiamNetwork::usage ="convertSamiamNetwork[file] converts a SAMAIM hugin
 renameFactors::usage ="renameFactors[factors,list] renames the numerical factors and sorts the factors into canonical order
  ... list is a list of pairs whose node numbers are to be swapped e.g. {{1,2}},{3,4}}";
 Begin["`Private`"];
-repMat[a_,m_,n_]:=If[Length@Dimensions@a==1,ArrayFlatten@Table[{a},m,n],ArrayFlatten@Table[a,m,n]]
-cumProduct[list_]:=FoldList[Times,list]
 normalizeClique[clique_,isMax_]:=Module[{newClique,sum},
 newClique=clique;sum=Total@clique[[-1]];
 If[isMax==False && sum>0,newClique[[-1]]=clique[[-1]]/sum];
 newClique]
-indexToAssignment[index_,card_]:=Mod[Floor[Transpose@repMat[index-1,Length@card,1]/repMat[cumProduct@Flatten@{1,Most@card},Length@index,1]],repMat[card,Length@index,1]]+1
-assignmentToIndex[assignment_,card_]:=If[Last@Dimensions@assignment==1,
-	Flatten@Outer[Times,Flatten@(assignment - 1),cumProduct@Flatten@{1, Most@card} ]+1,
-	Total[repMat[cumProduct@Flatten@{1,Most@card}, First@Dimensions@assignment, 1](assignment - 1),{2}] + 1]
+indexToAssignment[index_,card_]:=(Reverse/@Tuples@Reverse@(Range/@card))[[index]]
+assignmentToIndex[assignment_,card_]:=Flatten[Position[(Reverse/@Tuples@Reverse@(Range/@card)),#]&/@assignment]
 factorProductOrSum[a_,b_,isMax_:False]:=Module[{cardErrors,unionVars,c,commonVars,cardA,cardB,mapA,mapB,assignments,indxA,indxB,vals,pos},
 	If[First@a=={},Return@First@b];If[First@b=={},Return@First@a];
 	cardErrors=Select[GatherBy[Union@Flatten@{Thread[First@a->a[[2]]],Thread[First@b->b[[2]]]},First],Length@#>1&];

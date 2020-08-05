@@ -9,7 +9,7 @@ Markov networks are generally preferred over Bayesian networks for better perspe
 
 Belief Propagation is a message-passing algorithm for performing Bayesian inference in Markov networks. While an exact algorithm (computeMarginals) may be used for small scale marginal distribution inference in undirected networks the computation is NP hard and processing times exponentially increase with the scale of the network. Belief Passing algorithms (computeExactMarginalsBP) are used for improved performance in exact inference in undirected or Markov networks.
 
-Belief propagation is performed with either SumProduct Message Passing (also called Shafer-Shenoy) or MaxProduct Message Passing for Maximum a Posteriori (MAP) estimation. The resulting SumProduct marginal distributions are normalised to sum to 1. However MaxProduct marginal distributions remain unnormalised natural logarithms.
+Belief propagation is performed with either SumProduct Message Passing (also called Shafer-Shenoy) or MaxProduct Message Passing for Maximum a Posteriori (MAP) estimation. The resulting SumProduct marginal distributions are normalised to sum to 1 while MaxProduct marginal distributions remain unnormalised natural logarithms for accuracy.
 
 A second Belief Passing algorithm called Loopy Belief Propagation (computeApproximateMarginalsBP) can be used for large undirected networks and usually converges although it may not.
 

@@ -36,6 +36,12 @@ createCliqueTree::usage ="createCliqueTree[f,e,method:'Kruskal',print:False] cal
  ... reurned cliques have the same structure as factors
  ... the Maximum Spanning Tree Method may be the default 'Kruskal' for undirected graphs or 'Prim'
  ... if print is True then the node-clique and the clique-Maximum Spanning Tree graphs are printed";
+printFactorAndCliqueGraphs::usage="printFactorAndCliqueGraphs[f,e,method:'Kruskal'] creates & displays factor & clique graphs
+ ... identical to createCliqueTree except only prints the graphs
+ ... f is the factor list with each being a list containing the list of factor variables, list of variable cardinalities & list of variable values
+ ... e is the observed evidence being a list of {variable, evidence value}
+ ... returned cliques have the same structure as factors
+ ... the Maximum Spanning Tree Method may be the default 'Kruskal' for undirected graphs or 'Prim'";
 getNextCliques::usage ="getNextCliques[p,messages] finds a pair of cliques {i,j} where clique i is ready to transmit a message to clique j
  ... the clique tree (p) 
  ... current messages (messages)
@@ -44,7 +50,8 @@ getNextCliques::usage ="getNextCliques[p,messages] finds a pair of cliques {i,j}
  ... where more than one message is ready to be transmitted the numerically smallest pair is returned";
 cliqueTreeCalibrate::usage = "cliqueTreeCalibrate[p,isMax] calculates the final potentials for a clique tree (p)
  ... two adjacent cliques i and j are calibrated if they agree on the marginals over their shared variables
- ... if isMax is False the Sum-Product algorithm is used for message passing in the clique tree and the messages are normalize such that the values in the message sum to 1
+
+... if isMax is False the Sum-Product algorithm is used for message passing in the clique tree and the messages are normalize such that the values in the message sum to 1
  ... if isMax is True the algorithm is MaxProduct (Maximum a Posteriori) with output unnormalised natural logarithms";
 computeExactMarginalsBP::usage ="computeExactMarginalsBP[f,e:{},isMax:False,method:'Kruskal',print:False] calculates the exact posterior marginal probability distribution for each variable in the initial factors f given the evidence e
  ... f is the clique list with each being a list containing the list of factor variables, list of variable cardinalities & list of variable values
@@ -93,19 +100,22 @@ clusterGraphCalibrate::usage ="clusterGraphCalibrate[p,isMax,useSmartMP,threshho
 computeApproxMarginalsBP::usage ="computeApproxMarginalsBP[f,e:{},isMax:False,useSmartMP:False,threshhold:10^-6] calculates the approximate posterior marginal probability distribution over each variable in f given the evidence e 
  ... f is the clique list with each being a list containing the list of factor variables, list of variable cardinalities & list of variable values
  ... e is the observed evidence being a list of {variable, evidence value}
- ... if isMax is False the algorithm is SumProduct with ouput of normalised probabilities
- ... if isMax is True the algorithm is MaxProduct (Maximum a Posteriori) with output unnormalised natural logarithms
+ ... if isMax is False the algorithm is SumProduct with ouput of normalized probabilities
+ ... if isMax is True the algorithm is MaxProduct (Maximum a Posteriori) with output unnormalized natural logarithms
  ... if useSmartMP is True then an enhanced approach is used to obtain the next message cluster for processing
  ... default threshhold for convergence is 10^-6";
 convertSamiamNetwork::usage ="convertSamiamNetwork[file] converts a SAMAIM hugin .net file to factors
  ... return a list of SAMIAM node names and list of factors";
 renameFactors::usage ="renameFactors[factors,list] renames the numerical factors and sorts the factors into canonical order
  ... list is a list of pairs whose node numbers are to be swapped e.g. {{1,2}},{3,4}}";
+normalizeClique::usage="normalizeClique[clique,isMax] normalizes the clique or factor to a legal probability distribution
+ ... if isMax is False the ouput is normalized probabilities
+ ... if isMax is True the input is returned unchanged (i.e. unnormalized)";
 Begin["`Private`"];
 normalizeClique[clique_,isMax_]:=Module[{newClique,sum},
-newClique=clique;sum=Total@clique[[-1]];
-If[isMax==False && sum>0,newClique[[-1]]=clique[[-1]]/sum];
-newClique]
+	newClique=clique;sum=Total@clique[[-1]];
+	If[isMax==False && sum>0,newClique[[-1]]=clique[[-1]]/sum];
+	newClique]
 indexToAssignment[index_,card_]:=(Reverse/@Tuples@Reverse@(Range/@card))[[index]]
 assignmentToIndex[assignment_,card_]:=Flatten[Position[(Reverse/@Tuples@Reverse@(Range/@card)),#]&/@assignment]
 factorProductOrSum[a_,b_,isMax_:False]:=Module[{cardErrors,unionVars,c,commonVars,cardA,cardB,mapA,mapB,assignments,indxA,indxB,vals,pos},
@@ -148,15 +158,14 @@ observeEvidence[f_,e_]:=Module[{vars,cards,states,notStates,assignments,pos1,pos
   pos3=Flatten[Table[{First@#,y},{y,Flatten@Position[assignments[[First@#,All,#[[2]]]],Last@#]}]&/@pos2,1];
   Fold[ReplacePart[#1,{First@#2,-1,Last@#2}->0]&,f,pos3]]
 computeJointDistribution[f_]:=Which[f=={},Print["Error:empty factor list"];{{},{},{}},
-	Length@f==1,factorProductOrSum[First@f,Join[Most@First@f,{1+0Last@First@f}],False],
-	True,Fold[factorProductOrSum[#1,#2,False]&,First@f,Rest@f]]
+Length@f==1,factorProductOrSum[First@f,Join[Most@First@f,{1+0Last@First@f}],False],
+True,Fold[factorProductOrSum[#1,#2,False]&,First@f,Rest@f]]
 computeMarginal[v_,f_,e_]:=Module[{factorsEvidence,joint0,joint,marginal},
-	If[Length@f==0,Print["Error:empty factor list"];Return[{{},{},{}}]];
-	factorsEvidence=If[e=={},f,observeEvidence[f,If[Length@Dimensions@e==1,{e},e]]];
-	joint0=computeJointDistribution[factorsEvidence];
-	joint=Join[Most@joint0,{(Last@joint0)/Total@Last@joint0}];
-	marginal=factorMarginalization[joint,Complement[First@joint,v],False];
-	Join[Most@marginal,{(Last@marginal)/Total@Last@marginal}]]
+If[Length@f==0,Print["Error:empty factor list"];Return[{{},{},{}}]];
+factorsEvidence=If[e=={},f,observeEvidence[f,If[Length@Dimensions@e==1,{e},e]]];
+joint=normalizeClique[computeJointDistribution[factorsEvidence],False];
+marginal=factorMarginalization[joint,Complement[First@joint,v],False];
+normalizeClique[marginal,False]]
 computeInitialPotentials[cliques_]:=Module[{cliqueList,factorList,assignmentOfFactortoClique,assignmentOfCliqueToFactor,potentials},
 	cliqueList=First@cliques;factorList=Last@cliques;
 	assignmentOfFactortoClique=First/@(Intersection@@(First/@Position[cliqueList,#]&/@#)&/@First/@factorList);
@@ -195,6 +204,8 @@ cliqueEdges=#/.{List->UndirectedEdge}&/@DeleteDuplicates[Sort/@Flatten[Permutati
 	If[print,Print[Graph[Join[Union@@First/@f,cliqueNodes],Flatten@MapThread[Thread[#1\[UndirectedEdge]#2]&,{cliqueNodes,cliques}],VertexLabels->"Name"]];
 	Print[HighlightGraph[cliqueGraph,maxSpanningTree,GraphHighlightStyle->"Thick "]]];
 	computeInitialPotentials[{cliques,pruneTree[{cliques,Normal@AdjacencyMatrix@maxSpanningTree}],If[e=={},f,observeEvidence[f,e]]}]];
+printFactorAndCliqueGraphs[f_,e_,method_:"Kruskal"]:=Module[{},
+	createCliqueTree[f,e,"Kruskal",True];{}];
 getNextCliques[p_,messages_]:=Module[{edges,requiredEvidence,providedEvidence,lackingEvidence,availableEvidence,reByLe,aeByLe,nextMsg},
 	edges=Last@p;
 	requiredEvidence=Position[edges,1];

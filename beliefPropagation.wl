@@ -10,7 +10,7 @@ licenses/by/4.0/.*)
 (*Based on a scheme provided by Daphne Koller in the Stanford University Subject Probabilistic Graphical Models, Copyright (C) Daphne Koller, Stanford University, 2012*)
 indexToAssignment::usage ="indexToAssignment[index,card] calculates an structural assignment for a index of a factor with cardinality card";
 assignmentToIndex::usage ="assignmentToIndex[assignment,card] calculates an index for a structural assignment of a factor with cardinality card";
-factorProductOrSum::usage ="factorProductOrSum[a,b,isMax:False] calculates the product of two factors where
+factorProductOrSum::usage ="factorProductOrSum[f1,f2,isMax:False] calculates the product of two factors where
  ... each factor is a list containing the list of factor variables, list of variable cardinalities & list of variable values
  ... if isMax is False the algorithm is SumProduct with ouput of normalised probabilities
  ... if isMax is True the algorithm is MaxProduct (Maximum a Posteriori) with output unnormalised natural logarithms";
@@ -118,20 +118,18 @@ normalizeClique[clique_,isMax_]:=Module[{newClique,sum},
 	newClique]
 indexToAssignment[index_,card_]:=(Reverse/@Tuples@Reverse@(Range/@card))[[index]]
 assignmentToIndex[assignment_,card_]:=Flatten[Position[(Reverse/@Tuples@Reverse@(Range/@card)),#]&/@assignment]
-factorProductOrSum[a_,b_,isMax_:False]:=Module[{cardErrors,unionVars,c,commonVars,cardA,cardB,mapA,mapB,assignments,indxA,indxB,vals,pos},
-	If[First@a=={},Return@First@b];If[First@b=={},Return@First@a];
-	cardErrors=Select[GatherBy[Union@Flatten@{Thread[First@a->a[[2]]],Thread[First@b->b[[2]]]},First],Length@#>1&];
-	If[cardErrors!= {},Print["Cardinality mismatch in factors ... {variable,cardinality}: ",cardErrors/.Rule->List];Abort[]];
-	unionVars=Union[First@a,First@b];
-	mapA=Flatten[Position[unionVars,#]&/@First@a];
-	mapB=Flatten[Position[unionVars,#]&/@First@b];
-	c={unionVars,Table[0,Length@unionVars]};
-	c[[2,mapA]]=a[[2]];c[[2,mapB]]=b[[2]];
-	assignments=indexToAssignment[Range[Times@@c[[2]]],c[[2]]];
-	indxA=assignmentToIndex[assignments[[All,mapA]],a[[2]]];
-	indxB=assignmentToIndex[assignments[[All,mapB]],b[[2]]];
-	vals=If[isMax==True,a[[-1,indxA]]+b[[-1,indxB]],a[[-1,indxA]]*b[[-1,indxB]]];
-	Join[c,{vals}]]
+factorProductOrSum[f1_,f2_,isMax_:False]:=Module[{vars,cards,varSubst,fcpd,ind2,ind2indx,\[ScriptCapitalD],pos,res0},
+	vars=Union@Flatten[First/@{f1,f2}];
+	cards=Flatten[Union/@Flatten/@Transpose@Table[Extract[i[[2]],#]&/@Position[First@i,#]&/@vars,{i,{f1,f2}}]];
+	If[Length@cards!=Length@vars,Print["Error in cardinalities ... Variables: ",vars," ... Cardinalities: ",cards];Abort[]];
+	varSubst=Thread[vars->(ToExpression@Alphabet[])[[Range@Length@vars]]];
+	fcpd[f_,varvals_]:=First@Extract[Last@f,Position[indexToAssignment[Range@(Times@@f[[2]]),f[[2]]],varvals]];
+	ind2=Thread[{(ToExpression@Alphabet[])[[Range@Length@cards]],cards}];
+	ind2indx=Riffle[#,1,{2,-1,2}]&/@ind2;
+	\[ScriptCapitalD]=Flatten@Table[If[isMax==True,Plus,Times]@@{fcpd[f1,(First@f1)/.varSubst],fcpd[f2,(First@f2)/.varSubst]},##]&@@ind2indx;
+	pos=Position[Partition[Flatten@Table[vars/.varSubst,##]&@@ind2indx,Length@vars],#]&/@indexToAssignment[Range@(Times@@cards),cards];
+	res0=Flatten@Extract[\[ScriptCapitalD],pos];
+	{vars,cards,res0}]
 factorMarginalization[a_,v_,isMax_]:=Module[{bVar,mapB,bCard,bVal,assignments,indxB},
 	If[Or[First@a=={},v=={}],Return[a]];
 	bVar=Complement[First@a,v];

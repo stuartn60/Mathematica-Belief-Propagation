@@ -5,6 +5,21 @@ Mission statement
 
 This open source project is for Wolfram Language implementations of decision science algorithms in Subjective Logic, directed Bayesian and undirected Markov networks or graphs that can be used for data analysis, forecast, prediction and recommendation systems.
 
+Organization
+
+The packages are developed & maintained in the latest release of Wolfram Mathematica, which is currently  12.1.0.0. This version or a newer version is required to run the software.
+
+Algorithms implementations are provided in Wolfram package files (“*.wl”). A list of algorithms and usage may be obtained using the Mathematica notebook command:
+?beliefPropagation`*
+
+Tests and illustrative use are provided in a Mathematica notebook files (“*.nb”), in PDF files, or in Markdown files.
+
+In SubjectiveLogicMarkovNets thre notebooks are provided: beliefPropagationSLtests.nb (unit tests), Gradebook Example.nb and Cancer Example.nb
+
+In Non-Subjective Logic two notebooks are provided: beliefPropagationTests.nb (unit tests) and grade_network.nb (comparative methods for illustration & two procedure for creating factors ... the first procedure is using SAMIAM for automatic creation; and the second procedure is by inspecting Bayesian network directed conditional probabilities). Each notebook requires that the directory path be set to a working directory containing the Wolfram language package with test data in a subdirectiory.
+
+Markov Nets
+
 Markov networks are generally preferred over Bayesian networks for better perspectives on problems where there is a probabilistic interaction between neighbouring variables and in particular when the interaction between variables isn't decisively directed.
 
 Belief Propagation is a message-passing algorithm for performing Bayesian inference in Markov networks. While an exact algorithm (computeMarginals) may be used for small scale marginal distribution inference in undirected networks the computation is NP hard and processing times exponentially increase with the scale of the network. Belief Passing algorithms (computeExactMarginalsBP) are used for improved performance in exact inference in undirected or Markov networks.
@@ -25,21 +40,10 @@ All documents are with the license Creative Commons Attribution 4.0 Internationa
 
 Disclaimer: This software should be considered as 'alpha stage' & 'not ready for production.' It is provided with no express or implied warranty.
  
-Organization
-
-The packages are developed & maintained in the latest release of Wolfram Mathematica, which is currently  12.1.0.0. This version or a newer version is required to run the software.
-
-Algorithms implementations are provided in Wolfram package files (“*.wl”). A list of algorithms and usage may be obtained using the Mathematica notebook command:
-?beliefPropagation`*
-
-Tests and illustrative use are provided in a Mathematica notebook files (“*.nb”), in PDF files, or in Markdown files.
-
-Two notebooks are provided: beliefPropagationTests.nb (unit tests) and grade_network.nb (comparative methods for illustration & two procedure for creating factors ... the first procedure is using SAMIAM for automatic creation; and the second procedure is by inspecting Bayesian network directed conditional probabilities). Each notebook requires that the directory path be set to a working directory containing the Wolfram language package with test data in a subdirectiory.
-
 Enhancements
 
 The provided algorithms are considered basic and may be progressively enhanced. Suggestions for improvements, extensions and bug-fixes are welcome.
 
 Thank you for experimenting with this software.
 
-Stuart Nettleton 28 July 2020 (initial commit)
+Stuart Nettleton 28 July 2020 (initial Non-SubjectiveLogicMarkovNet commit) & 6 September 2020 (initial SubjectiveLogicMarkovNet commit)

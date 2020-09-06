@@ -10,7 +10,7 @@ Organization
 The packages are developed & maintained in the latest release of Wolfram Mathematica, which is currently  12.1.0.0. This version or a newer version is required to run the software.
 
 Algorithms implementations are provided in Wolfram package files (“*.wl”). A list of algorithms and usage may be obtained using the Mathematica notebook command:
-?beliefPropagation`*
+?beliefPropagationSL`*
 
 Tests and illustrative use are provided in a Mathematica notebook files (“*.nb”), in PDF files, or in Markdown files.
 

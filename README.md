@@ -1,5 +1,5 @@
 # Mathematica-Belief-Propagation
-Exact &amp; Loopy Belief Propagation for Undirected (Markov) Networks in Mathematica
+Exact &amp; Loopy Belief Propagation for Subjective Logic Undirected (Markov) Networks in Mathematica
 
 Mission statement 
 

@@ -14,9 +14,7 @@ Algorithms implementations are provided in Wolfram package files (“*.wl”). A
 
 Tests and illustrative use are provided in a Mathematica notebook files (“*.nb”), in PDF files, or in Markdown files.
 
-In SubjectiveLogicMarkovNets three notebooks are provided: beliefPropagationSLtests.nb (unit tests), Gradebook Example.nb and Cancer Example.nb
-
-In Non-Subjective Logic two notebooks are provided: beliefPropagationTests.nb (unit tests) and Gradebook Example.nb (comparative methods for illustration & two procedure for creating factors ... the first procedure is using SAMIAM for automatic creation; and the second procedure is by inspecting Bayesian network directed conditional probabilities).
+In SubjectiveLogicMarkovNets three notebooks are provided: beliefPropagationSLtests.nb (unit tests), Gradebook Example.nb and Cancer Example.nb. In Non-Subjective Logic two notebooks are provided: beliefPropagationTests.nb (unit tests) and Gradebook Example.nb. Each Gradebook Example illustrates comparative methods for creating factors: inspecting Bayesian network directed conditional probabilities; and SAMIAM for automatic creation.
 
 Markov Nets
 

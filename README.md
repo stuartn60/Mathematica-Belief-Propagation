@@ -16,7 +16,7 @@ Tests and illustrative use are provided in a Mathematica notebook files (“*.nb
 
 In SubjectiveLogicMarkovNets three notebooks are provided: beliefPropagationSLtests.nb (unit tests), Gradebook Example.nb and Cancer Example.nb
 
-In Non-Subjective Logic two notebooks are provided: beliefPropagationTests.nb (unit tests) and grade_network.nb (comparative methods for illustration & two procedure for creating factors ... the first procedure is using SAMIAM for automatic creation; and the second procedure is by inspecting Bayesian network directed conditional probabilities). Each notebook requires that the directory path be set to a working directory containing the Wolfram language package with test data in a subdirectiory.
+In Non-Subjective Logic two notebooks are provided: beliefPropagationTests.nb (unit tests) and Gradebook Example.nb (comparative methods for illustration & two procedure for creating factors ... the first procedure is using SAMIAM for automatic creation; and the second procedure is by inspecting Bayesian network directed conditional probabilities).
 
 Markov Nets
 

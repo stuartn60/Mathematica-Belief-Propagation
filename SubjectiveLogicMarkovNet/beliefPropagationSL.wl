@@ -62,7 +62,7 @@ cliqueTreeCalibrateSL::usage = "cliqueTreeCalibrateSL[p,isMax] calculates the fi
  ... two adjacent cliques i and j are calibrated if they agree on the marginals over their shared variables
 ... if isMax is False the Sum-Product algorithm is used for message passing in the clique tree and the messages are normalize such that the values in the message sum to 1
  ... if isMax is True the algorithm is MaxProduct (Maximum a Posteriori) with output unnormalised natural logarithms";
-computeMarginalsBPSL[cliques_,isMax_]::usage="computeMarginalsBPSL[cliques,isMax] is a subfunction for computing marginals
+computeMarginalsBPSL::usage="computeMarginalsBPSL[cliques,isMax] is a subfunction for computing marginals
  ... cliques are the input cliques
  ... if isMax is False the algorithm is SumProduct with ouput of normalised probabilities
  ... if isMax is True the algorithm is MaxProduct (Maximum a Posteriori) with output unnormalised natural logarithms";

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    589558,      10387]
-NotebookOptionsPosition[    587878,      10354]
-NotebookOutlinePosition[    588312,      10371]
-CellTagsIndexPosition[    588269,      10368]
+NotebookDataLength[    589963,      10392]
+NotebookOptionsPosition[    588283,      10359]
+NotebookOutlinePosition[    588717,      10376]
+CellTagsIndexPosition[    588674,      10373]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -5229,27 +5229,31 @@ The two plots and the tables above demonstrate that the Independent \
 Likelihood Pool (using a dual-leg Markov Net with uncombined evidence) \
 estimates a maximum Cancer Belief of 98% whereas the Linear Opinion Pool \
 (using Evidence Combination and a single-leg Markov Net) estimates a maximum \
-of 33%, which is unchanged from a single test. Both plots clearly demonstrate \
-that a high Belief critically depends on both very low uncertainty & very \
-high probability in the test opinion.  This is especially so in the Linear \
-Opinion Pool, where the Bayesian maximum belief of 33% is merely a spike at \
-almost 0% uncertainty and 100% evaluation probability that Cancer absolutely \
-exists. These characteristics are possible for yes/no classification \
-scientific tests but are always lacking in expert opinions. Expert \
-evaluations are usually based upon limited data and the assessment of many \
-indicators including social & psychological factors. It is important to \
-recall that these results are for the case of a low 5% population base rate, \
-which exacerbates the base rate fallacy (also called the Prosecutors\
-\[CloseCurlyQuote] Fallacy), a Linear Opinion Pool combination of evidence \
-shows that a belief in Cancer is only about 7%, given a systemic uncertainty \
-of say 10%, and two experts that each evaluate Cancer as having 95% \
-probability.
+of 33%, which is unchanged from a single test. These results are for the case \
+of a low 5% population base rate, which exacerbates the base rate fallacy \
+(also called the Prosecutors\[CloseCurlyQuote] Fallacy). Both plots clearly \
+demonstrate that a high Belief critically depends on both very low \
+uncertainty & very high probability in the test opinion.  It is an example of \
+the Sagan standard aphorism that \[OpenCurlyDoubleQuote]extraordinary claims \
+require extraordinary evidence,\[CloseCurlyDoubleQuote] or in this case a \
+claim of Cancer that rejects the base rate requires very strong evidence. 
 
-For comparison, the plots below show the same performance with a Hypothesis \
-population base rate of 0.5 rather than 0.005. It may be seen that the \
+This is especially so in the Linear Opinion Pool, where the Bayesian maximum \
+belief of 33% is merely a spike at almost 0% uncertainty and 100% evaluation \
+probability that Cancer absolutely exists. At the low base rate of 5% the \
+belief falls rapidly as the probability of the evidence reduces. For example, \
+where two experts each evaluate Cancer as having 95% probability and 10% \
+uncertainty, a Linear Opinion Pool combination of their evidence shows that \
+the belief in Cancer is only about 7% .   
+
+These characteristics are possible for yes/no classification scientific tests \
+but are always lacking in expert opinions. Expert evaluations are usually \
+based upon limited data and the assessment of many indicators including \
+social & psychological factors. Fortunately, the base rate of the hypothesis \
+is not always very low. For comparison, the plots below show are for a \
+Hypothesis base rate of 0.5 rather than 0.005. It may be seen that the \
 profiles have significantly broadened with the 95% evaluation and 10% \
-uncertainty for Linear Option Pool combined evidence leading to a belief of \
-94%.\
+uncertainty for Linear Option Pool combined evidence leads to a belief of 94%.\
 \>", "Text",
  CellChangeTimes->{{3.808335246842152*^9, 3.808335446647168*^9}, {
    3.8083354768952227`*^9, 3.808335841229433*^9}, {3.8083358759102993`*^9, 
@@ -5269,7 +5273,8 @@ uncertainty for Linear Option Pool combined evidence leading to a belief of \
    3.8084467727280617`*^9}, {3.8084468288042192`*^9, 3.808447117716679*^9}, 
    3.808457686435604*^9, {3.808457752311599*^9, 3.808457886285684*^9}, {
    3.808457953586433*^9, 3.808458014565927*^9}, {3.808458050626958*^9, 
-   3.808458134899238*^9}},ExpressionUUID->"07767eec-98b0-4846-92c3-\
+   3.808458134899238*^9}, {3.808459826330082*^9, 
+   3.808460448699088*^9}},ExpressionUUID->"07767eec-98b0-4846-92c3-\
 2f4755cd0b36"],
 
 Cell[CellGroupData[{
@@ -10384,10 +10389,10 @@ Cell[69065, 1580, 9359, 253, 173, "Output",ExpressionUUID->"a6ff0eb4-6047-4272-9
 Cell[78427, 1835, 9419, 253, 173, "Output",ExpressionUUID->"dd81abeb-87df-4efa-8275-e949f0d844ff"],
 Cell[87849, 2090, 190733, 3133, 473, "Output",ExpressionUUID->"65b987bc-dfd6-46ea-9d35-8edf0b0d3f90"]
 }, Open  ]],
-Cell[278597, 5226, 3100, 46, 242, "Text",ExpressionUUID->"07767eec-98b0-4846-92c3-2f4755cd0b36"],
+Cell[278597, 5226, 3505, 51, 288, "Text",ExpressionUUID->"07767eec-98b0-4846-92c3-2f4755cd0b36"],
 Cell[CellGroupData[{
-Cell[281722, 5276, 4643, 131, 225, "Input",ExpressionUUID->"37bbe290-607e-4bd5-84ba-a86dd2b5efda"],
-Cell[286368, 5409, 301494, 4942, 473, "Output",ExpressionUUID->"75d3ecb7-4cca-43f0-8737-87ffb73ff8ba"]
+Cell[282127, 5281, 4643, 131, 225, "Input",ExpressionUUID->"37bbe290-607e-4bd5-84ba-a86dd2b5efda"],
+Cell[286773, 5414, 301494, 4942, 473, "Output",ExpressionUUID->"75d3ecb7-4cca-43f0-8737-87ffb73ff8ba"]
 }, Open  ]]
 }
 ]

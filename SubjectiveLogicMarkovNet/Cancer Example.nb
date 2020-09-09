@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    490221,       8746]
-NotebookOptionsPosition[    488540,       8713]
-NotebookOutlinePosition[    488974,       8730]
-CellTagsIndexPosition[    488931,       8727]
+NotebookDataLength[    490660,       8753]
+NotebookOptionsPosition[    488980,       8720]
+NotebookOutlinePosition[    489414,       8737]
+CellTagsIndexPosition[    489371,       8734]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -752,26 +752,18 @@ Cell[BoxData[{
    3.8084327246112137`*^9, {3.808437220462757*^9, 3.80843722859335*^9}, {
    3.8084438880252953`*^9, 3.808443892394341*^9}, {3.808610117056313*^9, 
    3.808610123071129*^9}, {3.8086106507333*^9, 3.808610654790353*^9}},
- CellLabel->
-  "In[1589]:=",ExpressionUUID->"fe0163b7-a183-4257-93df-5ef4ce9ce79d"],
+ CellLabel->"In[72]:=",ExpressionUUID->"fe0163b7-a183-4257-93df-5ef4ce9ce79d"],
 
 Cell[BoxData[
  TemplateBox[{
   "Attributes", "locked", 
    "\"Symbol \\!\\(\\*RowBox[{\\\"beliefPropagationSL\\\"}]\\) is locked.\"", 
-   2, 1591, 94, 22962962708727983917, "Local"},
+   2, 74, 1, 22963293678452773924, "Local"},
   "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{
-  3.808370813496202*^9, {3.808432452142722*^9, 3.8084324788175297`*^9}, {
-   3.808432733611361*^9, 3.808432755053063*^9}, 3.8084358989231863`*^9, 
-   3.8084372432374*^9, 3.808438194831286*^9, 3.808443834261619*^9, 
-   3.8084438958885813`*^9, 3.808444021396716*^9, {3.808444085991805*^9, 
-   3.808444102763482*^9}, 3.808610031266346*^9, 3.808610127115416*^9, 
-   3.808610378853943*^9, 3.80861059493591*^9, 3.8086106624300947`*^9, 
-   3.808617036300252*^9, 3.8086171915992193`*^9},
+ CellChangeTimes->{3.8086513110259953`*^9},
  CellLabel->
   "During evaluation of \
-In[1589]:=",ExpressionUUID->"d664d5c3-6152-40d4-ad36-964b80a2149e"],
+In[72]:=",ExpressionUUID->"2257c560-f07c-456f-976f-55738a4dfb96"],
 
 Cell[BoxData[
  StyleBox["\<\"Cancer: Probability of Cancer with One and Two Positive \
@@ -793,10 +785,11 @@ Tests\"\>",
    3.808443834270886*^9, 3.8084438958999*^9, 3.808444021401924*^9, {
    3.808444085998643*^9, 3.808444102767641*^9}, 3.808610031277917*^9, 
    3.808610127121179*^9, 3.808610378864481*^9, 3.808610594944903*^9, 
-   3.80861066243569*^9, 3.808617036316637*^9, 3.8086171916054897`*^9},
+   3.80861066243569*^9, 3.808617036316637*^9, 3.8086171916054897`*^9, 
+   3.808651026734645*^9, 3.808651311032572*^9},
  CellLabel->
   "During evaluation of \
-In[1589]:=",ExpressionUUID->"3d7a0007-1dea-4ce4-8640-c6737492f197"],
+In[72]:=",ExpressionUUID->"8e348c37-9cb4-4a1c-b7b1-d0639478c288"],
 
 Cell[BoxData[
  InterpretationBox[Cell[BoxData[
@@ -999,7 +992,7 @@ Cell[BoxData[
       GridBoxItemStyle->{"Columns" -> {{14}}, "Rows" -> {{14}}},
       GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0.8}}}],
      "Grid"], TextForm]], "InlineText",ExpressionUUID->
-   "83a893a7-ca55-4456-bd95-ba87e7a7961d"],
+   "de0e6be3-ad0f-446b-b6f2-8f0b7ccbd82c"],
   Text[
    Grid[{{
      "Cancer with Positive Evidence", "No Evidence", "Single Positive Test", 
@@ -1065,9 +1058,8 @@ Cell[BoxData[
    3.8084440214743757`*^9, {3.808444086068122*^9, 3.8084441028370943`*^9}, 
    3.808610031342514*^9, 3.8086101271905212`*^9, 3.808610378866755*^9, 
    3.8086105950258703`*^9, 3.8086106625052156`*^9, 3.808617036374139*^9, 
-   3.80861719167163*^9},
- CellLabel->
-  "Out[1605]=",ExpressionUUID->"53888cf4-3299-4d93-8d28-b21bd2fbf65b"]
+   3.80861719167163*^9, 3.8086510268249474`*^9, 3.8086513111041613`*^9},
+ CellLabel->"Out[88]=",ExpressionUUID->"cce0a309-e320-46d0-a8fd-9fc8f8544ee5"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1109,9 +1101,10 @@ Positive Tests\>\"", ",",
    RowBox[{"cancerNode", "=", "1"}], ";", 
    RowBox[{"test1Node", "=", "2"}], ";", 
    RowBox[{"test2Node", "=", "3"}], ";", 
-   RowBox[{"testState", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"testState", "=", "2"}], ";"}], "\n", 
   RowBox[{"(*", 
-   RowBox[{"Evidence", " ", "Set", " ", "1"}], "*)"}]}], "\n", 
+   RowBox[{"Evidence", " ", "Set", " ", "1"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"evidence0", "=", 
    RowBox[{
@@ -1249,9 +1242,10 @@ Positive Tests\>\"", ",",
  RowBox[{
   RowBox[{"presentation", "[", 
    RowBox[{"\"\<Cancer with Combined Evidence\>\"", ",", "vals"}], "]"}], 
-  "\[IndentingNewLine]", 
+  "\n", 
   RowBox[{"(*", 
-   RowBox[{"Evidence", " ", "Set", " ", "2"}], "*)"}]}], "\n", 
+   RowBox[{"Evidence", " ", "Set", " ", "2"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"evidence0", "=", 
    RowBox[{
@@ -1530,7 +1524,14 @@ Probability\>\""}], "]"}], ",",
             ",", "\"\<Combination of Two Positive Tests vs. Uncertainty & \
 Test Probability\>\""}], "]"}], ",", 
           RowBox[{"{", "Bold", "}"}]}], "]"}]}]}], "]"}]}], "}"}], ",", 
-   RowBox[{"ImageSize", "\[Rule]", "1200"}]}], "]"}]}], "Input",
+   RowBox[{"ImageSize", "\[Rule]", "1200"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"combinedEvidence", "[", 
+     RowBox[{"0.1", ",", "0.95", ",", "cancerCpds2"}], "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"1", ",", "5", ",", "2"}], "]"}], "]"}], "*)"}]}]}], "Input",
  CellChangeTimes->{{3.808335246842152*^9, 3.808335446647168*^9}, {
    3.8083354768952227`*^9, 3.808335841229433*^9}, {3.8083358759102993`*^9, 
    3.8083358852700453`*^9}, {3.8083359461567793`*^9, 
@@ -1556,9 +1557,10 @@ Test Probability\>\""}], "]"}], ",",
    3.808444116038663*^9, 3.808444124094346*^9}, {3.808444560174746*^9, 
    3.808444619837633*^9}, {3.808446055207774*^9, 3.808446079038719*^9}, {
    3.808457559353528*^9, 3.8084576162580633`*^9}, {3.80861018437626*^9, 
-   3.808610201582056*^9}, {3.808610674711954*^9, 3.808610686667789*^9}},
- CellLabel->
-  "In[1606]:=",ExpressionUUID->"918b4b02-cfff-49be-80e7-343666f89408"],
+   3.808610201582056*^9}, {3.808610674711954*^9, 3.808610686667789*^9}, {
+   3.808651144619937*^9, 3.808651156289981*^9}, {3.808651193060607*^9, 
+   3.808651241711936*^9}, {3.808651287053813*^9, 3.808651289196087*^9}},
+ CellLabel->"In[89]:=",ExpressionUUID->"918b4b02-cfff-49be-80e7-343666f89408"],
 
 Cell[BoxData[
  StyleBox["\<\"Cancer: Probability of Cancer with Combined Evidence from Two \
@@ -1584,10 +1586,11 @@ Positive Tests\"\>",
    3.8084441278086977`*^9}, 3.808444625944214*^9, 3.80844608067037*^9, 
    3.808457619046603*^9, 3.808610031418598*^9, 3.808610204164806*^9, 
    3.808610379078725*^9, 3.808610595116638*^9, 3.80861068884184*^9, 
-   3.808617036529909*^9, 3.8086171973112173`*^9},
+   3.808617036529909*^9, 3.8086171973112173`*^9, 3.808651026954421*^9, 
+   3.808651243106489*^9, 3.808651311161737*^9},
  CellLabel->
   "During evaluation of \
-In[1606]:=",ExpressionUUID->"ca9e038f-56f4-4288-934a-2026ddd4e650"],
+In[89]:=",ExpressionUUID->"4191c6ca-12d6-4325-b649-ea4f4421ad29"],
 
 Cell[BoxData[
  InterpretationBox[Cell[BoxData[
@@ -1791,7 +1794,7 @@ Probability 1.0\"\>"},
       GridBoxItemStyle->{"Columns" -> {{14}}, "Rows" -> {{14}}},
       GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0.8}}}],
      "Grid"], TextForm]], "InlineText",ExpressionUUID->
-   "524f0ffa-d83e-4960-a677-fc21ff95b16a"],
+   "3cff58fe-eb3f-4beb-bc21-cef9b38107e9"],
   Text[
    Grid[{{
      "Cancer with Combined Evidence", "No Evidence", 
@@ -1842,9 +1845,10 @@ Probability 1.0\"\>"},
    3.80844412784657*^9}, 3.808444625975403*^9, 3.808446080708825*^9, 
    3.808457619048905*^9, 3.8086100314415407`*^9, 3.808610204203006*^9, 
    3.808610379082302*^9, 3.808610595166305*^9, 3.808610688884501*^9, 
-   3.808617036550647*^9, 3.80861719734099*^9},
+   3.808617036550647*^9, 3.80861719734099*^9, 3.8086510269851303`*^9, 
+   3.808651243145557*^9, 3.80865131120273*^9},
  CellLabel->
-  "Out[1618]=",ExpressionUUID->"1940db18-b1a1-4252-a4d2-450cc6b90c57"],
+  "Out[101]=",ExpressionUUID->"31046e6e-d0fd-4d59-9356-eb02617b7ae3"],
 
 Cell[BoxData[
  InterpretationBox[Cell[BoxData[
@@ -2048,7 +2052,7 @@ Probability 0.9\"\>"},
       GridBoxItemStyle->{"Columns" -> {{14}}, "Rows" -> {{14}}},
       GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0.8}}}],
      "Grid"], TextForm]], "InlineText",ExpressionUUID->
-   "af09459a-e20e-4697-8f4d-ad5f81869fcb"],
+   "5fd416c2-4d00-442f-a5cb-9cbaa7595c54"],
   Text[
    Grid[{{
      "Cancer with Combined Evidence", "No Evidence", 
@@ -2099,9 +2103,10 @@ Probability 0.9\"\>"},
    3.80844412784657*^9}, 3.808444625975403*^9, 3.808446080708825*^9, 
    3.808457619048905*^9, 3.8086100314415407`*^9, 3.808610204203006*^9, 
    3.808610379082302*^9, 3.808610595166305*^9, 3.808610688884501*^9, 
-   3.808617036550647*^9, 3.808617197377337*^9},
+   3.808617036550647*^9, 3.80861719734099*^9, 3.8086510269851303`*^9, 
+   3.808651243145557*^9, 3.808651311242353*^9},
  CellLabel->
-  "Out[1627]=",ExpressionUUID->"76b7d4f1-f166-47fe-ba9f-83ce7138792d"],
+  "Out[110]=",ExpressionUUID->"84db907b-8367-4ba3-a4a7-2577e5203fd9"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -2826,7 +2831,7 @@ bAg/R25yJql/og56J5v8xiqRS+qGqB8+zCa/48rlknewUjqpp6OuroZtxxbG
 WUFLzfeEMZ9gTaIGkZkX39+5fff7/KSGjVr2JmPP4hXkevBj5UbxvwK3W69P
 
                 "]], Polygon3DBox[{{1329, 882, 647, 648, 883, 1330}}]},
-              Annotation[#, "Charting`Private`Tag$1603200#1"]& ]],
+              Annotation[#, "Charting`Private`Tag$290466#1"]& ]],
             Lighting->{{"Ambient", 
                RGBColor[0.30100577, 0.22414668499999998`, 0.090484535]}, {
               "Directional", 
@@ -4059,7 +4064,7 @@ EXZ+/OWRvy+qsNasCisif1EUYJXy//hblHdQ/5+sqrYNq8pOkb8kcvFZ8tN/
 +M/jvGeFYp2yQuyQ/susYPzO456xL+I36IUrabuwuqyQmv8D19XsJw==
                 "]]},
               
-              Annotation[#, "Charting`Private`Tag$1649181#1"]& ]],
+              Annotation[#, "Charting`Private`Tag$336447#1"]& ]],
             Lighting->{{"Ambient", 
                RGBColor[0.30100577, 0.22414668499999998`, 0.090484535]}, {
               "Directional", 
@@ -4639,9 +4644,10 @@ Probability\""}, "Labeled", DisplayFunction -> (FormBox[
    3.80844412784657*^9}, 3.808444625975403*^9, 3.808446080708825*^9, 
    3.808457619048905*^9, 3.8086100314415407`*^9, 3.808610204203006*^9, 
    3.808610379082302*^9, 3.808610595166305*^9, 3.808610688884501*^9, 
-   3.808617036550647*^9, 3.80861720743678*^9},
+   3.808617036550647*^9, 3.80861719734099*^9, 3.8086510269851303`*^9, 
+   3.808651243145557*^9, 3.808651321838634*^9},
  CellLabel->
-  "Out[1630]=",ExpressionUUID->"6b16c805-6249-4de1-aa85-14c82f43a41f"]
+  "Out[113]=",ExpressionUUID->"cf5d1c8b-ebc3-4f8d-9714-b37f9a6cbdc7"]
 }, Open  ]],
 
 Cell["\<\
@@ -4649,7 +4655,7 @@ The two plots and the tables above demonstrate that the Independent \
 Likelihood Pool (using a dual-leg Markov Net with uncombined evidence) \
 estimates a maximum Cancer Belief of 98% whereas the Linear Opinion Pool \
 (using Evidence Combination and a single-leg Markov Net) estimates a maximum \
-of 33%, which is unchanged from a single test. These results are for the case \
+of 28%, which is unchanged from a single test. These results are for the case \
 of a low 5% population base rate, which exacerbates the base rate fallacy \
 (also called the Prosecutors\[CloseCurlyQuote] Fallacy). Both plots clearly \
 demonstrate that a high Belief critically depends on both very low \
@@ -4659,12 +4665,12 @@ require extraordinary evidence,\[CloseCurlyDoubleQuote] or in this case a \
 claim of Cancer that rejects the base rate requires very strong evidence. 
 
 This is especially so in the Linear Opinion Pool, where the Bayesian maximum \
-belief of 33% is merely a spike at almost 0% uncertainty and 100% evaluation \
+belief of 28% is merely a spike at almost 0% uncertainty and 100% evaluation \
 probability that Cancer absolutely exists. At the low base rate of 5% the \
 belief falls rapidly as the probability of the evidence reduces. For example, \
 where two experts each evaluate Cancer as having 95% probability and 10% \
 uncertainty, a Linear Opinion Pool combination of their evidence shows that \
-the belief in Cancer is only about 7% .   
+the belief in Cancer is only about 2.5% .   
 
 These characteristics are possible for yes/no classification scientific tests \
 but are always lacking in expert opinions. Expert evaluations are usually \
@@ -4694,8 +4700,9 @@ uncertainty for Linear Option Pool combined evidence leads to a belief of 89%.\
    3.808457686435604*^9, {3.808457752311599*^9, 3.808457886285684*^9}, {
    3.808457953586433*^9, 3.808458014565927*^9}, {3.808458050626958*^9, 
    3.808458134899238*^9}, {3.808459826330082*^9, 3.808460448699088*^9}, {
-   3.808617326112872*^9, 
-   3.808617326761219*^9}},ExpressionUUID->"07767eec-98b0-4846-92c3-\
+   3.808617326112872*^9, 3.808617326761219*^9}, {3.808651063598271*^9, 
+   3.808651098633884*^9}, {3.808651272275135*^9, 
+   3.808651274049423*^9}},ExpressionUUID->"07767eec-98b0-4846-92c3-\
 2f4755cd0b36"],
 
 Cell[CellGroupData[{
@@ -4831,7 +4838,7 @@ Test Probability\>\""}], "]"}], ",",
    RowBox[{"ImageSize", "\[Rule]", "1200"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.808457659033272*^9, 3.80845771365956*^9}},
  CellLabel->
-  "In[1632]:=",ExpressionUUID->"37bbe290-607e-4bd5-84ba-a86dd2b5efda"],
+  "In[114]:=",ExpressionUUID->"37bbe290-607e-4bd5-84ba-a86dd2b5efda"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -5784,7 +5791,7 @@ P/XOuCs=
                 "]], 
                Polygon3DBox[{{1473, 406, 405, 2052, 2053, 1632}, {1734, 1195, 
                 676, 677, 1196, 1735}}]},
-              Annotation[#, "Charting`Private`Tag$1679687#1"]& ]],
+              Annotation[#, "Charting`Private`Tag$366903#1"]& ]],
             Lighting->{{"Ambient", 
                RGBColor[0.30100577, 0.22414668499999998`, 0.090484535]}, {
               "Directional", 
@@ -7789,7 +7796,7 @@ C9PJ90Z8d3RKJ98Nix3vp1eUz2vvQXW7ZSXfEfE98VA6+U5akk6+m+L7qWM6
 +YZZ5JgjVzLfz6STtR1r/DYsj3lcm6q5l134svST3B1xrfpYLfcnC+THdw==
 
                 "]]},
-              Annotation[#, "Charting`Private`Tag$1739972#1"]& ]],
+              Annotation[#, "Charting`Private`Tag$427188#1"]& ]],
             Lighting->{{"Ambient", 
                RGBColor[0.30100577, 0.22414668499999998`, 0.090484535]}, {
               "Directional", 
@@ -8706,9 +8713,9 @@ Probability\""}, "Labeled", DisplayFunction -> (FormBox[
   PlotRangePadding->{6, 5}]], "Output",
  CellChangeTimes->{3.808457740479903*^9, 3.8086100673627357`*^9, 
   3.808610379578987*^9, 3.808610637562722*^9, 3.8086170657456827`*^9, 
-  3.808617306712961*^9},
+  3.808617306712961*^9, 3.808651055699333*^9, 3.8086513392523518`*^9},
  CellLabel->
-  "Out[1634]=",ExpressionUUID->"6910604a-e416-448e-9aa4-4b3d70bbb2df"]
+  "Out[116]=",ExpressionUUID->"9869a651-ba75-4a3d-99ea-e36d168b7ae1"]
 }, Open  ]]
 },
 WindowSize->{1440., 761.25},
@@ -8731,22 +8738,22 @@ CellTagsIndex->{}
 Notebook[{
 Cell[558, 20, 24470, 399, 262, "Text",ExpressionUUID->"d64ec78a-e04f-499d-8156-cae2329adab9"],
 Cell[CellGroupData[{
-Cell[25053, 423, 13699, 332, 467, "Input",ExpressionUUID->"fe0163b7-a183-4257-93df-5ef4ce9ce79d"],
-Cell[38755, 757, 830, 16, 22, "Message",ExpressionUUID->"d664d5c3-6152-40d4-ad36-964b80a2149e"],
-Cell[39588, 775, 1109, 23, 25, "Print",ExpressionUUID->"3d7a0007-1dea-4ce4-8640-c6737492f197"],
-Cell[40700, 800, 10676, 269, 173, "Output",ExpressionUUID->"53888cf4-3299-4d93-8d28-b21bd2fbf65b"]
+Cell[25053, 423, 13694, 331, 467, "Input",ExpressionUUID->"fe0163b7-a183-4257-93df-5ef4ce9ce79d"],
+Cell[38750, 756, 369, 9, 22, "Message",ExpressionUUID->"2257c560-f07c-456f-976f-55738a4dfb96"],
+Cell[39122, 767, 1155, 24, 25, "Print",ExpressionUUID->"8e348c37-9cb4-4a1c-b7b1-d0639478c288"],
+Cell[40280, 793, 10719, 268, 173, "Output",ExpressionUUID->"cce0a309-e320-46d0-a8fd-9fc8f8544ee5"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[51413, 1074, 17090, 486, 790, "Input",ExpressionUUID->"918b4b02-cfff-49be-80e7-343666f89408"],
-Cell[68506, 1562, 1391, 27, 25, "Print",ExpressionUUID->"ca9e038f-56f4-4288-934a-2026ddd4e650"],
-Cell[69900, 1591, 9539, 255, 173, "Output",ExpressionUUID->"1940db18-b1a1-4252-a4d2-450cc6b90c57"],
-Cell[79442, 1848, 9524, 255, 173, "Output",ExpressionUUID->"76b7d4f1-f166-47fe-ba9f-83ce7138792d"],
-Cell[88969, 2105, 154409, 2538, 473, "Output",ExpressionUUID->"6b16c805-6249-4de1-aa85-14c82f43a41f"]
+Cell[51036, 1066, 17490, 496, 811, "Input",ExpressionUUID->"918b4b02-cfff-49be-80e7-343666f89408"],
+Cell[68529, 1564, 1459, 28, 25, "Print",ExpressionUUID->"4191c6ca-12d6-4325-b649-ea4f4421ad29"],
+Cell[69991, 1594, 9609, 256, 173, "Output",ExpressionUUID->"31046e6e-d0fd-4d59-9356-eb02617b7ae3"],
+Cell[79603, 1852, 9594, 256, 173, "Output",ExpressionUUID->"84db907b-8367-4ba3-a4a7-2577e5203fd9"],
+Cell[89200, 2110, 154478, 2539, 473, "Output",ExpressionUUID->"cf5d1c8b-ebc3-4f8d-9714-b37f9a6cbdc7"]
 }, Open  ]],
-Cell[243393, 4646, 3555, 52, 288, "Text",ExpressionUUID->"07767eec-98b0-4846-92c3-2f4755cd0b36"],
+Cell[243693, 4652, 3653, 53, 288, "Text",ExpressionUUID->"07767eec-98b0-4846-92c3-2f4755cd0b36"],
 Cell[CellGroupData[{
-Cell[246973, 4702, 4644, 131, 225, "Input",ExpressionUUID->"37bbe290-607e-4bd5-84ba-a86dd2b5efda"],
-Cell[251620, 4835, 236904, 3875, 473, "Output",ExpressionUUID->"6910604a-e416-448e-9aa4-4b3d70bbb2df"]
+Cell[247371, 4709, 4643, 131, 225, "Input",ExpressionUUID->"37bbe290-607e-4bd5-84ba-a86dd2b5efda"],
+Cell[252017, 4842, 236947, 3875, 473, "Output",ExpressionUUID->"9869a651-ba75-4a3d-99ea-e36d168b7ae1"]
 }, Open  ]]
 }
 ]

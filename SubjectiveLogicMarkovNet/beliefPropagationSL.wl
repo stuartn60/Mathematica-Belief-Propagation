@@ -172,13 +172,14 @@ indx=assignmentToIndex[Partition[Flatten@Array[List,#],Length@#],#]&/@cards;
 \[ScriptCapitalD]4=\[ScriptCapitalD]5+\[ScriptCapitalD]6 \[ScriptCapitalD]7;
 Transpose@{vars,cards,vals,\[ScriptCapitalD]4,\[ScriptCapitalD]5,\[ScriptCapitalD]6,\[ScriptCapitalD]7}];
 
-multiplicationUncertainty[beliefs_] := Module[{b,u,a,uXYMin,uXYMax,px,ax,uXYcandidates},
+multiplicationUncertainty[beliefs_] := Mean@beliefs[[All,2]];(*Module[{b,u,a,uXYMin,uXYMax,px,ax,uXYcandidates},
 b=First/@beliefs;u=beliefs[[All,2]];a=Last/@beliefs;
 uXYMin=Times@@u;uXYMax=Min[1,Plus@@u-uXYMin];
 ax=#/Total@#&/@ReplacePart[a,Position[Last/@beliefs,0]->10^-10];
 px=#[[1]]+#[[2]]#[[3]]&/@beliefs;
 uXYcandidates=Flatten[(Outer[Times,##]&@@px-Outer[Times,##]&@@b)/Outer[Times,##]&@@ax];
-Min@@Pick[uXYcandidates,#>=uXYMin&&#<=uXYMax&/@uXYcandidates,True]];
+(*Min@@Pick[uXYcandidates,#>=uXYMin&&#<=uXYMax&/@uXYcandidates,True]*)
+Mean@u];*)
 
 factorProductOrSumSL[f1_,f2_,isMax_:False]:=Module[{vars,cards,varSubst,vars2,fcpd3,fcpd7,indx1,indindx,\[ScriptCapitalD],\[ScriptCapitalD]3,\[ScriptCapitalD]6,\[ScriptCapitalD]7,\[ScriptCapitalD]7a,c,op,varsf1,varsf2},
 vars=Union@Flatten[First/@{f1,f2}];

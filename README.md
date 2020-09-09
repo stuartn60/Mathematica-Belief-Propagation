@@ -14,7 +14,7 @@ Algorithms implementations are provided in Wolfram package files (“*.wl”). A
 
 Tests and illustrative use are provided in a Mathematica notebook files (“*.nb”), in PDF files, or in Markdown files.
 
-In SubjectiveLogicMarkovNets four notebooks are provided: beliefPropagationSLtests.nb (unit tests), Gradebook Example.nb, Cancer Example.nb and Dirichlet demonstrations with a focus on how to calculate uncertainty in belief multiplication. In Non-Subjective Logic two notebooks are provided: beliefPropagationTests.nb (unit tests) and Gradebook Example.nb. Each Gradebook Example illustrates comparative methods for creating factors: inspecting Bayesian network directed conditional probabilities; and SAMIAM for automatic creation.
+In SubjectiveLogicMarkovNets four notebooks are provided: beliefPropagationSLtests.nb (unit tests), Gradebook Example.nb, Cancer Example.nb and Dirichlet demonstrations with a focus on how to calculate uncertainty in belief multiplication by averaging uncertainties. In Non-Subjective Logic two notebooks are provided: beliefPropagationTests.nb (unit tests) and Gradebook Example.nb. Each Gradebook Example illustrates comparative methods for creating factors: inspecting Bayesian network directed conditional probabilities; and SAMIAM for automatic creation.
 
 Markov Nets
 

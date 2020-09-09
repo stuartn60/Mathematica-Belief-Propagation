@@ -9,7 +9,7 @@ BeginPackage["beliefPropagationSL`"];
 (*All documents are with the license Creative Commons Attribution 4.0 International (CC BY 4.0).For details see https://creativecommons.org
 licenses/by/4.0/.*)
 (*As amended based on original Markov Net schema by Daphne Koller in Stanford University Subject Probabilistic Graphical Models, Copyright (C) Daphne Koller, Stanford University, 2012*)
-indexToAssingnment::usage ="indexToAssignment[index,card] calculates an structural assignment for a index of a factor with cardinality card";
+indexToAssignment::usage ="indexToAssignment[index,card] calculates an structural assignment for a index of a factor with cardinality card";
 assignmentToIndex::usage ="assignmentToIndex[assignment,card] calculates an index for a structural assignment of a factor with cardinality card";
 convertFactorToDirichlet::usage="convertFactorToDirichlet[f,uArray:0.15,bArray:1,isLogsInFactor:False] converts probabilities to Dirichlet beliefs:
  ... f is a group of factors in standard Bayes/Markov network order (the first variable varies least frequently & the last variable varies the most frequently)

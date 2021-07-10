@@ -162,14 +162,14 @@ normalizeCliqueSL::usage="normalizeCliqueSL[clique,isMax] normalizes the clique 
  ... if isMax is False the ouput is normalized probabilities
  ... if isMax is True the input is returned unchanged (i.e. unnormalized)";
 
-adjustBeliefsSL::usage="adjustBeliefsSL[beliefs] normalizes the clique or factor to a legal probability distribution";
+adjustBeliefsSL::usage="adjustBeliefsSL[beliefs,cards] normalizes the clique or factor to a legal probability distribution";
 
 Begin["`Private`"];
 
 safeDivideSL[a_,b_]:=Limit[a/(b/.{0|0.->\[Epsilon]}),\[Epsilon]->0,Direction->"FromAbove"];
 
 normalizeCliqueSL[clique_,isMax_]:=Module[{newClique,sum3,sum7},
-newClique=clique;sum3=Total@clique[[3]];sum7=Total@clique[[7]];
+	newClique=clique;sum3=Total@clique[[3]];sum7=Total@clique[[7]];
 	If[isMax==False && sum3>0,newClique[[3]]=clique[[3]]/sum3;newClique[[7]]=clique[[7]]/sum7];
 	newClique];
 
@@ -177,7 +177,7 @@ indexToAssignmentSL[index_,card_]:=(Reverse/@Tuples@Reverse@(Range/@card))[[inde
 
 assignmentToIndexSL[assignment_, card_] :=Flatten[Position[(Reverse /@ Tuples @ Reverse @ (Range /@ card)),#]& /@  assignment];
 
-adjustBeliefsSL[beliefs_]:=Module[{pos,bx,ux,bx1,bx2},
+adjustBeliefsSL[beliefs_,cards_]:=Module[{pos,bx,ux,bx1,bx2},
 	If[Length@Dimensions@beliefs==1,
 	bx={First@beliefs};ux={beliefs[[2]]},
 	bx=First/@beliefs;ux=beliefs[[All,2]]];
@@ -185,14 +185,15 @@ adjustBeliefsSL[beliefs_]:=Module[{pos,bx,ux,bx1,bx2},
 	If[pos=={},bx2=bx,
 	(*Print["Note: Negative beliefs set to zero .. "];*)
 	bx1=ReplacePart[bx,Thread[pos->0]];
-	bx2=(1-ux) bx1/(Total/@bx1)];
-	If[Length@Dimensions@beliefs==1,First@bx2,bx2]];
+(*bx2=(1-ux) bx1/(Total/@bx1)];*)
+  bx2=MapThread[Flatten[safeDivideSL[(1-#2)Partition[#1,First@#3],Flatten[Total/@Partition[#1,First@#3]]]]&,{bx1,ux,cards}];
+	If[Length@Dimensions@beliefs==1,First@bx2,bx2]]];
 
 convertFactorToDirichletSL[f_,uArray_:0.15,bArray_:1,isLogsInFactor_:False]:=Module[{f1,vars,cards0,cards,vals,indx,\[ScriptCapitalD]4,\[ScriptCapitalD]5,\[ScriptCapitalD]6,\[ScriptCapitalD]7,\[ScriptCapitalD]8,\[ScriptCapitalD]9},
 	f1=If[Length@Dimensions@f==1,{f},f];
 	vars=First/@f1;cards=f1[[All,2]];vals=f1[[All,3]];
 	(*For each factor {1.vars, 2.cards, 3.vals, 4.normalised probabilities, 5.beliefs, 6.uncertainty, 7.base rates*)
-	\[ScriptCapitalD]6=Which[
+	(*\[ScriptCapitalD]6=Which[
 	Length@Dimensions@{uArray}==1,If[uArray<1,Table[uArray,Length@f1],Print["Uncertainty is ",uArray," but cannot be 1 or greater"];Abort[]],
 	Flatten[{uArray}]=={},Table[0.1,Length@f1],
 	Length@uArray==Length@f1,uArray,
@@ -210,8 +211,19 @@ convertFactorToDirichletSL[f_,uArray_:0.15,bArray_:1,isLogsInFactor_:False]:=Mod
 	Dimensions@bArray==Dimensions@f1[[All,3]],
 	bArray,
 	True,Print["Error in Base Rate specification: the Base rate vector has dimensions ",Dimensions@bArray," elements while the factor values have dimensions " ,Length@#&/@f1[[All,3]]," ... Note: specify an array of Base Rate vectors, a single Base Rate vector to apply to all factors, or use the default of equal Base Rates by either no specification or an empty vector {}."];Abort[]];
+*)
+	\[ScriptCapitalD]6=Which[
+	Length@Dimensions@{uArray}==1,If[uArray<1,Table[uArray,Length@f1],Print["Uncertainty is ",uArray," but cannot be 1 or greater"];Abort[]],
+	Flatten[{uArray}]=={},Table[{0.15},Length@f1],
+	Length@uArray==Length@f1,uArray,
+	True,Print["Error in Uncertainty specification: the Uncertainty vector has ",Length@uArray," elements while the number of factors is " ,Length@f1,". Note: specify a vector, a single uncertainty to apply to all factors, or use the default of 0.1 by either no specification or an empty vector {}."];Abort[]];
+	\[ScriptCapitalD]7=Which[
+		Length@Dimensions@bArray==1,Table[bArray,Length@f1],
+		MemberQ[{{},1},bArray],Flatten[#/Total@#&/@#]&/@(Table[1,#]&/@#&/@((Length/@Partition[indexToAssignmentSL[Range[Times@@#],#],#[[1]]])&/@cards)),
+		First@Dimensions[indexToAssignmentSL[Range[Times@@#],#]]&/@cards==Length/@{bArray},{bArray},
+		True,Print["Error in Base Rate specification: the Base rate vector has dimensions ",Dimensions@bArray," elements while the factor values have dimensions " ,Length@#&/@f1[[All,3]]," ... Note: specify an array of Base Rate vectors, a single Base Rate vector to apply to all factors, or use the default of equal Base Rates by either no specification or an empty vector {}."];Abort[]];
 	indx=assignmentToIndexSL[Partition[Flatten@Array[List,#],Length@#],#]&/@cards;
-	\[ScriptCapitalD]5=adjustBeliefsSL@MapThread[{(#1[[#2]]/Total@#1 )-#4 #3,#3}&,{If[isLogsInFactor==True,Exp/@vals,vals],indx,\[ScriptCapitalD]6,\[ScriptCapitalD]7}];
+	\[ScriptCapitalD]5=adjustBeliefsSL[MapThread[{(#1[[#2]]/Total@#1 )-#4 #3,#3}&,{If[isLogsInFactor==True,Exp/@vals,vals],indx,\[ScriptCapitalD]6,\[ScriptCapitalD]7}],cards];
 	\[ScriptCapitalD]4=\[ScriptCapitalD]5+\[ScriptCapitalD]6 \[ScriptCapitalD]7;
 	Transpose@{vars,cards,vals,\[ScriptCapitalD]4,\[ScriptCapitalD]5,\[ScriptCapitalD]6,\[ScriptCapitalD]7}];
 
@@ -338,7 +350,7 @@ getNextCliquesSL[p_,messages_]:=Module[{edges,requiredEvidence,providedEvidence,
 
 cliqueTreeCalibrateSL[p_,isMax_]:=Module[{i,j,k,m,cliques,cliqueEdges,fp,requiredEvidence,messages,cliqueNodes,cliqueGraph,leafNodes,edges,sum},
 	cliqueEdges=First@p;
-  cliques=If[isMax==True,Join[#[[1;;2]]&/@Last@p,N@{#}/.{Indeterminate->-\[Infinity]}&/@(Log/@#[[3]]&/@Last@p),#[[4;;]]&/@Last@p,2],Last@p];
+         cliques=If[isMax==True,Join[#[[1;;2]]&/@Last@p,N@{#}/.{Indeterminate->-\[Infinity]}&/@(Log/@#[[3]]&/@Last@p),#[[4;;]]&/@Last@p,2],Last@p];
 	messages=Table[{},Length@cliques,Length@cliques];
 	cliqueNodes=Range@Length@cliques;
 	cliqueGraph=AdjacencyGraph[cliqueNodes,cliqueEdges,VertexLabels->"Name"];

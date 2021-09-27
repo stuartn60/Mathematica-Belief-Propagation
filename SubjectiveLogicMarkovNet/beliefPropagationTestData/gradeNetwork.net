@@ -7,15 +7,15 @@ net
 	huginenginegenerator3061656038650325130L = "edu.ucla.belief.inference.JoinTreeSettings@7f46f17e";
 }
 
-node Intelligence
+node Grade
 {
-	states = ("state0" "state1" );
-	position = (177 1);
+	states = ("state1" "state2" "state3" );
+	position = (98 -82);
 	diagnosistype = "AUXILIARY";
 	DSLxSUBMODEL = "Root Submodel";
 	ismapvariable = "false";
-	ID = "variable1";
-	label = "Intelligence";
+	ID = "variable2";
+	label = "Grade";
 	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
 	excludepolicy = "include whole CPT";
 }
@@ -43,22 +43,22 @@ node SAT
 	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
 	excludepolicy = "include whole CPT";
 }
-node Grade
+node Intelligence
 {
-	states = ("state1" "state2" "state3" );
-	position = (98 -82);
+	states = ("state0" "state1" );
+	position = (177 1);
 	diagnosistype = "AUXILIARY";
 	DSLxSUBMODEL = "Root Submodel";
 	ismapvariable = "false";
-	ID = "variable2";
-	label = "Grade";
+	ID = "variable1";
+	label = "Intelligence";
 	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
 	excludepolicy = "include whole CPT";
 }
 node Letter
 {
 	states = ("state0" "state1" );
-	position = (107 -173);
+	position = (101 -167);
 	diagnosistype = "AUXILIARY";
 	DSLxSUBMODEL = "Root Submodel";
 	ismapvariable = "false";
@@ -67,9 +67,12 @@ node Letter
 	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
 	excludepolicy = "include whole CPT";
 }
-potential ( Intelligence | )
+potential ( Grade | Difficulty Intelligence )
 {
-	data = (	0.7	0.3	);
+	data = (((	0.3	0.4	0.3	)
+		(	0.9	0.08	0.02	))
+		((	0.05	0.25	0.7	)
+		(	0.5	0.3	0.2	)));
 }
 potential ( Difficulty | )
 {
@@ -80,12 +83,9 @@ potential ( SAT | Intelligence )
 	data = ((	0.95	0.05	)
 		(	0.2	0.8	));
 }
-potential ( Grade | Difficulty Intelligence )
+potential ( Intelligence | )
 {
-	data = (((	0.3	0.4	0.3	)
-		(	0.9	0.08	0.02	))
-		((	0.05	0.25	0.7	)
-		(	0.5	0.3	0.2	)));
+	data = (	0.7	0.3	);
 }
 potential ( Letter | Grade )
 {

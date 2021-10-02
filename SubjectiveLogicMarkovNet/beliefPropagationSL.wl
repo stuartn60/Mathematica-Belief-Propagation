@@ -29,10 +29,10 @@ factorMarginalizationSL::usage ="factorMarginalizationSL[a,v,isMax_] removes var
  ... if isMax is False the algorithm is SumProduct with ouput of normalised probabilities
  ... if isMax is True the algorithm is MaxProduct (Maximum a Posteriori) which finds the maximum factor value over all possible assignments to the marginalized variables and leaves the output as unnormalised natural logarithms";
 
-reorderFactorSL::usage="reorderFactorSL[f1,isMax] ... reoders a factor so variables are in increasing order
+(*reorderFactorSL::usage="reorderFactorSL[f1,isMax] ... reoders a factor so variables are in increasing order
  ... f1 is a factor
  ... if isMax is False the algorithm is SumProduct with ouput of normalised probabilities
- ... if isMax is True the algorithm is MaxProduct (Maximum a Posteriori) with output unnormalised natural logarithms";
+ ... if isMax is True the algorithm is MaxProduct (Maximum a Posteriori) with output unnormalised natural logarithms";*)
 
 observeEvidenceSL::usage ="observeEvidenceSL[f,e,emethod] modifies a set of factors (f) for observed evidence (e) where
  ... each factor is a list containing the list of factor variables, list of variable cardinalities & list of variable values
@@ -172,13 +172,9 @@ Begin["`Private`"];
 safeDivideSL[a_,b_]:=Limit[a/(b/.{0|0.->\[Epsilon]}),\[Epsilon]->0,Direction->"FromAbove"];
 
 normalizeCliqueSL[clique_,isMax_]:=Module[{f1,fnNorm},
-    f1=If[Length@Cases[clique,{{__},{__},{__}}]==0,{clique},clique];
-    fnNorm@f_:=Module[{\[ScriptCapitalD]3,\[ScriptCapitalD]7},If[!isMax,
-        \[ScriptCapitalD]3=(*Flatten[#/Total@#&/@Partition[f[[3]],f[[2,1]]]]*)f[[3]]/Total@f[[3]];
-        \[ScriptCapitalD]7=Flatten[#/Total@#&/@Partition[f[[7]],f[[2,1]]]],
-        \[ScriptCapitalD]3=f[[3]];\[ScriptCapitalD]7=f[[7]]];
+       fnNorm@f_:=Module[{\[ScriptCapitalD]3,\[ScriptCapitalD]7},If[!isMax,\[ScriptCapitalD]3=f[[3]]/Total@f[[3]];\[ScriptCapitalD]7=Flatten[#/Total@#&/@Partition[f[[7]],f[[2,1]]]],\[ScriptCapitalD]3=f[[3]];\[ScriptCapitalD]7=f[[7]]];
        {f[[1]],f[[2]],\[ScriptCapitalD]3,f[[4]],f[[5]],f[[6]],\[ScriptCapitalD]7}];
-      First[fnNorm/@f1 ]];
+ If[Length@Cases[clique,{{__},{__},{__},{__},{__},__,{__}}]==0,fnNorm@clique,fnNorm/@clique]];
 
 ind2AssSL[cards_]:=Reverse/@Flatten[Array[List,Reverse@cards],Length@cards-1];
 ass2IndSL[cards_,ass_]:=Flatten[Position[ind2AssSL@cards,#]&/@Flatten[{ass},Length@Dimensions@{ass}-2]];
@@ -193,7 +189,7 @@ adjustBeliefsSL[beliefs_,cards_]:=Module[{pos,bx,ux,bx1,bx2},
     If[Length@ Cases[beliefs,{{__},__}]==0,First@bx2,bx2]];
 
 convertFactorToDirichletSL[f_,uArray_:1,bArray_:1,isLogsInFactor_:False]:=Module[{f1,vars,cards0,cards,vals,uncert0,base0,
-   bArray1,indx,\[ScriptCapitalD]4,\[ScriptCapitalD]5,\[ScriptCapitalD]6,\[ScriptCapitalD]7,\[ScriptCapitalD]8,\[ScriptCapitalD]9},
+bArray1,indx,\[ScriptCapitalD]4,\[ScriptCapitalD]5,\[ScriptCapitalD]6,\[ScriptCapitalD]7,\[ScriptCapitalD]8,\[ScriptCapitalD]9},
   f1=If[Length@Cases[f,{{__},{__},{__}}]==0,{f},f];
   vars=f1[[All,1]];cards=f1[[All,2]];vals=f1[[All,3]];
   (*For each factor {1.vars, 2.cards, 3.vals, 4.normalised probabilities, 5.beliefs, 6.uncertainty, 7.base rates*)
@@ -238,9 +234,9 @@ factorMarginalizationSL[f_,mv_:{},isMax_:False]:=Module[{pos0,pos1,outVars,outCa
     If[ Or[First @ f == {},Length@f[[1]]==1],Return@f];
     pos0=Flatten[Position[f[[1]],#]&/@mv,1];
     pos1=Complement[Thread[{Range@Length@f[[1]]}],pos0];
+    If[pos1 == {},Print["Error:Resultant factor has empty scope"];Abort[]];
     {outVars,outCards}=Transpose@SortBy[Transpose@{Extract[f[[1]],pos1],Extract[f[[2]],pos1]},First];
-    If[outVars == {},Print["Error:Resultant factor has empty scope"];Abort[]];
-    colOrder=Flatten[Position[outVars,#]&/@Select[f[[1]],!MemberQ[mv,#]&]];
+   colOrder=Flatten[Position[outVars,#]&/@Select[f[[1]],!MemberQ[mv,#]&]];
     \[ScriptCapitalD]3=ind2AssSL[outCards][[All,colOrder]]/.Normal@GroupBy[Thread[Delete[#,pos0]&/@ind2AssSL@f[[2]]->f[[3]]],First->Last,If[isMax,Max,Plus]@@#&];
     \[ScriptCapitalD]7a=ind2AssSL[outCards][[All,colOrder]]/.Normal@GroupBy[Thread[Delete[#,pos0]&/@ind2AssSL@f[[2]]->f[[7]]],First->Last,If[isMax,Max,Plus]@@#&];
     \[ScriptCapitalD]6=f[[6]];
@@ -268,7 +264,7 @@ observeEvidenceSL[f_,e_,emethod_:1]:=Module[{f1,e1,pos1,pos2},
       ];f1];
 
 computeJointDistributionSL[f_]:=Which[f=={},Print["Error:empty factor list"];{},
-	Length@f==1||Length@Dimensions@f==1,reorderFactorSL[If[Length@f==1,Flatten[f,1],f],False],
+	Length@f==1||Length@Dimensions@f==1,sortFactorVariablesSL@f,
 	True,Fold[factorProductOrSumSL[#1,#2,False]&,First@f,Rest@f]];
 
 computeMarginalSL[v_,f_,e_,emethod_:1]:=Module[{fe,joint,marginal0},
@@ -278,47 +274,50 @@ computeMarginalSL[v_,f_,e_,emethod_:1]:=Module[{fe,joint,marginal0},
 	marginal0=factorMarginalizationSL[joint,Complement[First@joint,v],False];
 	normalizeCliqueSL[#,False]&/@If[Length@Dimensions@marginal0==1,{marginal0},marginal0]];
 
-computeInitialPotentialsSL[cliques_]:=Module[{cliqueList, factorList, assignmentOfCliquetoFactor4,potentials},
-	cliqueList = First @ cliques;
-	factorList = Last @ cliques;
-	assignmentOfCliquetoFactor4=Fold[Join[#1,{{First@#2,Complement[Last@#2,Flatten@(Last/@#1)]}}]&,{First@#},Rest@#]&@(List@@@Sort@Normal[Last/@#&/@GroupBy[Flatten[Thread/@MapIndexed[{#1,First@#2}&,(Intersection@@(First/@Position[cliqueList,#]&/@#)&/@First/@factorList)],1],First]]);
-	potentials = If[SameQ[{},#],#,computeJointDistributionSL@factorList[[#]]]&/@Last/@assignmentOfCliquetoFactor4;
-	{cliques[[2]], potentials}]; 
+computeInitialPotentialsSL[cliqueSet_,method_:"Kruskal",print_:False]:=Module[{cliqueList, factorList,newCliques,spanningTree,potentials},
+       cliqueList = cliqueSet[[1]];
+       factorList = cliqueSet[[-1]];  newCliques=Sort@Normal@GroupBy[Flatten[Thread[#[[1]]->#[[2]]]&/@MapIndexed[{Min@@Intersection@@(Position[cliqueList,#][[All,1]]&/@#1),First@#2}&,factorList[[All,1]]]],First->Last];
+       spanningTree=maxSpanningTreeSL[cliqueList[[newCliques[[All,1]]]],method,print];
+       potentials =Which[Length@#==1,factorList[[First@#]],True,computeJointDistributionSL@factorList[[#]]]&/@newCliques[[All,2]];
+      {spanningTree, potentials}]; 
 
 pruneTreeSL[cliques_]:=Module[{cnodes,cedges,neighboursI,toRemove,toKeep,i,j,nk},
 	toRemove={};cnodes=First@cliques;cedges=cliques[[2]];
 	Do[If[MemberQ[toRemove,i],Continue[]];
-	neighboursI=Flatten@Position[cedges[[i]],1];
-	Do[j=neighboursI[[neighbour]];
-	If[MemberQ[toRemove,j],Continue[]];
-	If[Length@Select[MemberQ[cnodes[[j]],#]&/@cnodes[[i]],#==True&]==Length@cnodes[[i]],
+	  neighboursI=Flatten@Position[cedges[[i]],1];
+	 Do[j=neighboursI[[neighbour]];
+	    If[MemberQ[toRemove,j],Continue[]];
+	    If[Length@Select[MemberQ[cnodes[[j]],#]&/@cnodes[[i]],#==True&]==Length@cnodes[[i]],
 		Do[If[Length@Intersection[cnodes[[i]],cnodes[[nk]]]==Length@cnodes[[i]],
 		cedges[[Complement[neighboursI,{nk}],nk]]=1;
 		cedges[[nk,Complement[neighboursI,{nk}]]]=1;
 		Break[]],
-	{nk,neighboursI}];
-	cedges[[i,All]]=0;cedges[[All,i]]=0;
-	toRemove=Append[toRemove,i]],{neighbour,Length@neighboursI}],
+	  {nk,neighboursI}];
+	 cedges[[i,All]]=0;cedges[[All,i]]=0;
+	  toRemove=Append[toRemove,i]],{neighbour,Length@neighboursI}],
 	{i,Length@cnodes}];
-	toKeep=Complement[Range@Length@cnodes,toRemove];
-	cedges[[toKeep,toKeep]]];
+        toKeep=Complement[Range@Length@cnodes,toRemove];
+        cedges[[toKeep,toKeep]]];
 
-createCliqueTreeSL[f_,e_,emethod_,method_:"Kruskal",print_:False]:=Module[{f1,nodeEdges, nodeGraph, cliques0, cliques, cliqueNodes, cliqueEdges,
-         cliqueGraph, lengthSepSets, maxSpanningTree},
+createCliqueTreeSL[f_,e_,emethod_,method_:"Kruskal",print_:False]:=Module[{f1,nodeEdges, nodeGraph, cliques0,
+          cliques, cliqueNodes,c},
          f1=If[e == {},f ,observeEvidenceSL[f, e,emethod]];
 	nodeEdges =DeleteDuplicates[UndirectedEdge@@#&/@Sort/@Flatten[Subsets[#,{2}]&/@First /@ f1,1]];
 	nodeGraph = Graph[Union @@ First /@ f1, nodeEdges, VertexLabels-> "Name"];
 	cliques = Sort@FindClique[nodeGraph, Infinity, All];
 	cliqueNodes=Array[c,Length@cliques];
+	If[print,Print[Graph[Join[Union @@ First /@ f1, cliqueNodes], Flatten@MapThread[Thread[#1 \[UndirectedEdge] #2]&, {cliqueNodes, cliques}], VertexLabels-> "Name"]]];
+         computeInitialPotentialsSL[{cliques,f1(*If[e == {},f ,observeEvidenceSL[f, e,emethod]]*)},method,print]]; 
+
+maxSpanningTreeSL[cliques_,method_:"Kruskal",print_:False]:=Module[{ cliqueNodes,c, cliqueEdges,cliqueGraph, lengthSepSets,spanningTree},
+         cliqueNodes=Array[c,Length@cliques];
 	cliqueEdges = UndirectedEdge@@#&/@Pick[Subsets[cliqueNodes,{2}],Not@SameQ[#,{}]&/@(Intersection@@#&/@Subsets[cliques,{2}])];
 	cliqueGraph = Graph[cliqueNodes, cliqueEdges, VertexLabels ->"Name"];
 	lengthSepSets = Length @ (Intersection @@ {Extract[cliques, First @ Position[cliqueNodes, First @ #]],
-	Extract[cliques, First @ Position[cliqueNodes, Last @ #]]})& /@ cliqueEdges;
-	maxSpanningTree = FindSpanningTree[cliqueGraph, EdgeWeight -> -1*lengthSepSets, Method ->method];
-	If[print,
-	Print[Graph[Join[Union @@ First /@ f1, cliqueNodes], Flatten@MapThread[Thread[#1 \[UndirectedEdge] #2]&, {cliqueNodes, cliques}], VertexLabels-> "Name"]];Print[HighlightGraph[cliqueGraph, maxSpanningTree, GraphHighlightStyle-> "Thick "]]];
-         computeInitialPotentialsSL[{cliques,pruneTreeSL[{cliques, Normal @ AdjacencyMatrix @ maxSpanningTree}],
-	f1(*If[e == {},f ,observeEvidenceSL[f, e,emethod]]*)}]]; 
+	    Extract[cliques, First @ Position[cliqueNodes, Last @ #]]})& /@ cliqueEdges;
+	spanningTree=FindSpanningTree[cliqueGraph, EdgeWeight -> -1*lengthSepSets, Method ->method];
+         If[print,Print[HighlightGraph[cliqueGraph, spanningTree, GraphHighlightStyle-> "Thick "]]];
+         pruneTreeSL[{cliques, Normal @ AdjacencyMatrix @ spanningTree}]];
 
 getNextCliquesSL[p_,messages_]:=Module[{edges,requiredEvidence,providedEvidence,lackingEvidence,availableEvidence,reByLe,aeByLe,nextMsg},
 	edges=Last@p;
@@ -336,26 +335,27 @@ cliqueTreeCalibrateSL[p_,isMax_]:=Module[{i,j,k,m,cliques,cliqueEdges,fp,require
          cliques=If[isMax==True,Join[#[[1;;2]]&/@Last@p,N@{#}/.{Indeterminate->-\[Infinity]}&/@(Log/@#[[3]]&/@Last@p),#[[4;;]]&/@Last@p,2],Last@p];
 	messages=Table[{},Length@cliques,Length@cliques];
 	cliqueNodes=Range@Length@cliques;
-	cliqueGraph=AdjacencyGraph[cliqueNodes,cliqueEdges,VertexLabels->"Name"];
-	leafNodes=Pick[cliqueNodes,#==1&/@VertexDegree@cliqueGraph];
+         cliqueGraph=AdjacencyGraph[cliqueNodes,cliqueEdges,VertexLabels->"Name"];
+         leafNodes=Pick[cliqueNodes,#==1&/@VertexDegree@cliqueGraph];
 	Scan[(messages[[#,First@First@Position[cliqueEdges[[#]],1]]]=normalizeCliqueSL[cliques[[#]],isMax])&,leafNodes];
 	While[True,
-	{i,j}=getNextCliquesSL[{cliques,cliqueEdges},messages];
-	If[{i,j}=={0,0},Break[]];
-	edges=Complement[Flatten@Position[cliqueEdges[[i]],1],{j}];
-	fp=Fold[factorProductOrSumSL[#1,#2,isMax]&,cliques[[i]],messages[[edges,i]]];
-	messages[[i,j]]=normalizeCliqueSL[factorMarginalizationSL[fp,Complement[First@fp,cliques[[i,1]]],isMax],isMax]];
+	  {i,j}=getNextCliquesSL[{cliques,cliqueEdges},messages];
+	   If[{i,j}=={0,0},Break[]];
+	   edges=Complement[Flatten@Position[cliqueEdges[[i]],1],{j}];
+	   fp=Fold[factorProductOrSumSL[#1,#2,isMax]&,cliques[[i]],messages[[edges,i]]];
+	   messages[[i,j]]=normalizeCliqueSL[factorMarginalizationSL[fp,Complement[First@fp,cliques[[i,1]]],isMax],isMax];
+         ];
 	Do[edges=Complement[Flatten@Position[cliqueEdges[[k]],1],{k}];
-	fp=Fold[factorProductOrSumSL[#1,#2,isMax]&,cliques[[k]],messages[[edges,k]]];
-	cliques[[k]]=factorMarginalizationSL[fp,Complement[First@fp,cliques[[k,1]]],isMax],
+	  fp=Fold[factorProductOrSumSL[#1,#2,isMax]&,cliques[[k]],messages[[edges,k]]];
+	  cliques[[k]]=factorMarginalizationSL[fp,Complement[First@fp,cliques[[k,1]]],isMax],
 	{k,Length@messages}];
 	{cliqueEdges,cliques}];
 
 computeMarginalsBPSL[cliques_,isMax_]:=Module[{vars,pos1,pos2},
-	vars=Union@Flatten@(First/@cliques);
-	pos1=First/@First/@(Position[cliques[[All,1]],#]&/@vars);
-	pos2=MapThread[Complement,{First/@cliques[[pos1]],Thread[{Range@Length@vars}]}];
-	MapThread[normalizeCliqueSL[factorMarginalizationSL[#1,#2,isMax],isMax]&,{cliques[[pos1]],pos2}]];
+        vars=Union@Flatten@(First/@cliques);
+        pos1=Position[cliques[[All,1]],#][[1,1]]&/@vars;
+        pos2=MapThread[Complement,{cliques[[pos1,1]],{#}&/@vars}];
+       normalizeCliqueSL[MapThread[If[#2=={},#1,factorMarginalizationSL[#1,#2,isMax]]&,{cliques[[pos1]],pos2}],isMax]];
 
 computeExactMarginalsBPSL[f_,e_:{},emethod_:1,isMax_:False,method_:"Kruskal",print_:False]:=computeMarginalsBPSL[Last@cliqueTreeCalibrateSL[createCliqueTreeSL[f,e,emethod,method,print],isMax],isMax];
 
@@ -514,21 +514,6 @@ combineEvidenceSL[beliefs_]:=Module[{vars,b1,bel,prob},
 	prob=bel[[1]]+bel[[2]]bel[[3]];
 	{{First@vars,beliefs[[1,2]],prob,prob,bel[[1]],bel[[2]],bel[[3]]}}];
 
-reorderFactorSL[f1_,isMax_]:=Module[{vars,cards,varSubst,varsf1,indx1,indindx,vars2,c,fcpd3,fcpd7,\[ScriptCapitalD],\[ScriptCapitalD]3,\[ScriptCapitalD]6,\[ScriptCapitalD]7,\[ScriptCapitalD]7a},
-	vars=Sort@First@f1;cards=Flatten[Extract[f1[[2]],#]&/@Position[First@f1,#]&/@vars];
-	vars2=Array[c,Length@vars];varSubst=Thread[vars->vars2];varsf1=(First@f1)/.varSubst;
-	indindx=Riffle[#,1,{2,-1,2}]&/@Thread[{vars2,cards}];
-	indx1=Position[Partition[Flatten@Table[vars2,##]&@@indindx,Length@vars2],#]&/@ind2AssSL@cards;
-	fcpd3[f_,varvals_]:=First@Extract[f[[3]],Position[ind2AssSL@f[[2]],varvals]];
-	fcpd7[f_,varvals_]:=f[[7,First@Position[Partition[Flatten@Array[List,#],Length@#]&@f[[2]],varvals]]];
-	\[ScriptCapitalD][fcpd_]:=Flatten@Table[{fcpd@@{f1,varsf1}},##]&@@indindx;
-	\[ScriptCapitalD]3=(\[ScriptCapitalD]@fcpd3)[[Flatten@indx1]];
-	(*For each factor {1.vars, 2.cards, 3.vals, 4.normalised probabilities, 5.beliefs, 6.uncertainty, 7.base rates*)
-	\[ScriptCapitalD]6=f1[[6]];
-	\[ScriptCapitalD]7a=\[ScriptCapitalD]@fcpd7;\[ScriptCapitalD]7=\[ScriptCapitalD]7a/Total@\[ScriptCapitalD]7a;
-         \[ScriptCapitalD]7=Flatten[#/Total@#&/@Partition[\[ScriptCapitalD]7a,First@cards]];
-	First@convertFactorToDirichletSL[{vars,cards,\[ScriptCapitalD]3},\[ScriptCapitalD]6,\[ScriptCapitalD]7,isMax]];
-
 convertSamiamNetworkSL[file_]:= Module[
         {txt, txt1, txt2, val1, val2, subst1, subst2, subst3, out1,out2},
         txt = Import[file, {"Text", "Words"}];
@@ -555,21 +540,11 @@ sortFactorVariablesNonSL[factors_]:=Module[{reOrder},
         colOrder=Flatten[Position[outVars,#]&/@f[[1]]];
         \[ScriptCapitalD]3=ind2AssSL[outCards][[All,colOrder]]/.Thread[#&/@ind2AssSL@f[[2]]->f[[3]]];
        {outVars,outCards,\[ScriptCapitalD]3}];
-    reOrder/@factors]
+       If[Length@Cases[factors,{{__},{__},{__}}]==0,reOrder@factors, reOrder/@factors]]
 
-sortFactorVariablesSL[factors_]:=Module[{reOrder},
-    reOrder@f_:=Module[{pos1,outVars,outCards,colOrder, \[ScriptCapitalD]3, \[ScriptCapitalD]4, \[ScriptCapitalD]5, \[ScriptCapitalD]6, \[ScriptCapitalD]7, \[ScriptCapitalD]7a},
-        If[ Or[First @ f== {},Length@f[[1]]==1],Return@f];
-        pos1=Thread[{Range@Length@f[[1]]}];
-       {outVars,outCards}=Transpose@SortBy[Transpose@{Extract[f[[1]],pos1],Extract[f[[2]],pos1]},First];
-        colOrder=Flatten[Position[outVars,#]&/@f[[1]]];
-        \[ScriptCapitalD]3=ind2AssSL[outCards][[All,colOrder]]/.Thread[#&/@ind2AssSL@f[[2]]->f[[3]]];
-        \[ScriptCapitalD]4=ind2AssSL[outCards][[All,colOrder]]/.Thread[#&/@ind2AssSL@f[[2]]->f[[4]]];
-        \[ScriptCapitalD]5=ind2AssSL[outCards][[All,colOrder]]/.Thread[#&/@ind2AssSL@f[[2]]->f[[5]]];
-        \[ScriptCapitalD]7a=ind2AssSL[outCards][[All,colOrder]]/.Thread[#&/@ind2AssSL@f[[2]]->f[[7]]];
-        \[ScriptCapitalD]7=Flatten[#/Total@#&/@Partition[\[ScriptCapitalD]7a,outCards[[1]]]];
-       {outVars,outCards,\[ScriptCapitalD]3,\[ScriptCapitalD]4,\[ScriptCapitalD]5,f[[6]],\[ScriptCapitalD]7a}];
-   Flatten[ reOrder/@factors,1]]
+sortFactorVariablesSL[factors_]:= If[Length@Cases[factors,{{__},{__},{__},{__},{__},_,{__}}]==0,
+        convertFactorToDirichletSL[sortFactorVariablesNonSL@{factors[[1]],factors[[2]],factors[[3]]},factors[[6]],sortFactorVariablesNonSL[factors[[1]],factors[[2]],factors[[7]]][[3]]][[1]], 
+        convertFactorToDirichletSL[sortFactorVariablesNonSL@Transpose@{factors[[All,1]],factors[[All,2]],factors[[All,3]]},factors[[All,6]],sortFactorVariablesNonSL[Transpose@{factors[[All,1]],factors[[All,2]],factors[[All,7]]}][[All,3]]]]
 
 renameFactorsSL[factors_,list_]:=Module[{vars1,vars2,vars},
 	vars1=Union@Join[First/@list,Last/@list];

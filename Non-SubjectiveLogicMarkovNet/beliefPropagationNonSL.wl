@@ -180,20 +180,19 @@ computeJointDistribution[f_] := Which[f == {},Print["Error:empty factor list"];{
      Length @ f == 1,factorProductOrSum[First @ f, Join[Most @ First @ f, {1 + 0 Last @ First @ f}], False],
      True,Fold[factorProductOrSum[#1, #2, False]&, First @ f, Rest @ f]]
 
-computeMarginal[v_, f_, e_] :=Module[{factorsEvidence, joint0, joint, marginal},
+computeMarginal[v_, f_, e_:{}] :=Module[{factorsEvidence, joint0, joint, marginal},
       If[Length @ f == 0,Print["Error:empty factor list"];Return[{{}, {}, {}}]];
       factorsEvidence = If[e == {},f ,observeEvidence[f,If[Length @ Dimensions @ e == 1,{e},e]]];
       joint = normalizeClique[computeJointDistribution[factorsEvidence], False];
       marginal = factorMarginalization[joint, Complement[First @ joint,v], False];
       normalizeClique[marginal, False]]
 
-computeInitialPotentials[cliques_] :=Module[{cliqueList, factorList, assignmentOfCliquetoFactor4,potentials},
-    cliqueList = First @ cliques;
-    factorList = Last @ cliques;
-    assignmentOfCliquetoFactor4=Fold[Join[#1,{{First@#2,Complement[Last@#2,Flatten@(Last/@#1)]}}]&,{First@#},Rest@#]&@(List@@@Sort@Normal[Last/@#&/@GroupBy[Flatten[Thread/@MapIndexed[{#1,First@#2}&,
-(Intersection@@(First/@Position[cliqueList,#]&/@#)&/@First/@factorList)],1],First]]);
-    potentials = If[SameQ[{},#],#,computeJointDistribution@factorList[[#]]]&/@Last/@assignmentOfCliquetoFactor4;
-    {cliques[[2]], potentials}]; 
+computeInitialPotentials[cliqueSet_,method_:"Kruskal",print_:False]:=Module[{cliqueList, factorList,newCliques,spanningTree,potentials},
+       cliqueList = cliqueSet[[1]];
+       factorList = cliqueSet[[-1]];  newCliques=Sort@Normal@GroupBy[Flatten[Thread[#[[1]]->#[[2]]]&/@MapIndexed[{Min@@Intersection@@(Position[cliqueList,#][[All,1]]&/@#1),First@#2}&,factorList[[All,1]]]],First->Last];
+       spanningTree=maxSpanningTree[cliqueList[[newCliques[[All,1]]]],method,print];
+       potentials =Which[Length@#==1,factorList[[First@#]],True,computeJointDistribution@factorList[[#]]]&/@newCliques[[All,2]];
+      {spanningTree, potentials}]; 
 
 pruneTree[cliques_] := Module[{cnodes, cedges, neighboursI, toRemove, toKeep, i, j, nk},
     toRemove = {};
@@ -225,14 +224,18 @@ cliqueEdges,cliqueGraph, lengthSepSets, maxSpanningTree},
     nodeGraph = Graph[Union @@ First /@ f, nodeEdges, VertexLabels-> "Name"];
     cliques = Sort@FindClique[nodeGraph, Infinity, All];
     cliqueNodes=Array[c,Length@cliques];
-    cliqueEdges = UndirectedEdge@@#&/@Pick[Subsets[cliqueNodes,{2}],Not@SameQ[#,{}]&/@(Intersection@@#&/@Subsets[cliques,{2}])];
-    cliqueGraph = Graph[cliqueNodes, cliqueEdges, VertexLabels ->"Name"];
-    lengthSepSets = Length @ (Intersection @@ {Extract[cliques, First @ Position[cliqueNodes, First @ #]],
-      Extract[cliques, First @ Position[cliqueNodes, Last @ #]]})& /@ cliqueEdges;
-    maxSpanningTree = FindSpanningTree[cliqueGraph, EdgeWeight -> -1*lengthSepSets, Method ->method];
-    If[print,Print[Graph[Join[Union @@ First /@ f, cliqueNodes],
-Flatten@ MapThread[Thread[#1 \[UndirectedEdge] #2]&, {cliqueNodes, cliques}], VertexLabels-> "Name"]];Print[HighlightGraph[cliqueGraph, maxSpanningTree, GraphHighlightStyle-> "Thick "]]];
-    computeInitialPotentials[{cliques,pruneTree[{cliques, Normal @ AdjacencyMatrix @ maxSpanningTree}],If[e == {},f ,observeEvidence[f, e]]}]]; 
+    If[print,Print[Graph[Join[Union @@ First /@ f, cliqueNodes],Flatten@ MapThread[Thread[#1 \[UndirectedEdge] #2]&, {cliqueNodes, cliques}], VertexLabels-> "Name"]]];
+    computeInitialPotentials[{cliques,If[e == {},f ,observeEvidence[f, e]]},method,print]]; 
+
+maxSpanningTree[cliques_,method_:"Kruskal",print_:False]:=Module[{ cliqueNodes,c, cliqueEdges,cliqueGraph, lengthSepSets,spanningTree},
+         cliqueNodes=Array[c,Length@cliques];
+	cliqueEdges = UndirectedEdge@@#&/@Pick[Subsets[cliqueNodes,{2}],Not@SameQ[#,{}]&/@(Intersection@@#&/@Subsets[cliques,{2}])];
+	cliqueGraph = Graph[cliqueNodes, cliqueEdges, VertexLabels ->"Name"];
+	lengthSepSets = Length @ (Intersection @@ {Extract[cliques, First @ Position[cliqueNodes, First @ #]],
+	    Extract[cliques, First @ Position[cliqueNodes, Last @ #]]})& /@ cliqueEdges;
+	spanningTree=FindSpanningTree[cliqueGraph, EdgeWeight -> -1*lengthSepSets, Method ->method];
+         If[print,Print[HighlightGraph[cliqueGraph, spanningTree, GraphHighlightStyle-> "Thick "]]];
+         pruneTree[{cliques, Normal @ AdjacencyMatrix @ spanningTree}]];
 
 printFactorAndCliqueGraphs[f_, e_, method_:"Kruskal"] :=Module[{},createCliqueTree[f, e, "Kruskal", True];{}]; 
 
@@ -307,7 +310,7 @@ createClusterGraph[f_, e_] :=Module[{f1, clusterNodes, factorNodes, edges0, edge
 checkConvergence[new_, old_, threshhold_:10^-6] :=If[Or @@ Thread[Flatten @ Abs[new - old] < threshhold],True,False]
 
 clusterGraphCalibrate[p_, isMax_, useSmartMP_, threshhold_:10^-6] :=Module[{clusterEdges, clusters, vars, card, messageVars,
-messageCards,messageVals, messages, tic, iter, i, j, lastMessages, prevMessage, edges,fp, sum, pos, clusterList, m},
+    messageCards,messageVals, messages, tic, iter, i, j, lastMessages, prevMessage, edges,fp, sum, pos, clusterList, m},
         clusterEdges = First @ p;
         clusters = Last @ p;
         pos = Position[clusterEdges, 1];

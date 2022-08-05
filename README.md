@@ -28,6 +28,10 @@ A second Belief Passing algorithm called Loopy Belief Propagation (computeApprox
 
 The use of undirected Markov networks is not as intuitive as directed Bayesian networks because the factors do not always correspond to probabilities. Factors for undirected networks can be readily derived from a corresponding directed Bayesian network either manually or automatically using SAMIAM (both are demonstrated in the Non-SubjectiveLogic grade_network notebook). Factors may be also learned from data using Markov Chain Monte Carlo with Gibbs or Metropolis Hastings sampling and maximum likelihood estimation. This topic is external to this repository as others have contributed Mathematica code (for example StackExchange user Sander "Fast implementation of Metropolis-Hastings update with multiple sets" https://mathematica.stackexchange.com/questions/112677/fast-implementation-of-metropolis-hastings-update-with-multiple-sets ; Burkart, J. "Mathematica Markov Chain Monte Carlo" https://github.com/joshburkart/mathematica-mcmc ; and Gregory, P. "Wolfram Demonstrations Project: Markov Chain Monte Carlo Simulation Using the Metropolis Algorithm" http://demonstrations.wolfram.com/MarkovChainMonteCarloSimulationUsingTheMetropolisAlgorithm/ ).
 
+Kirkwood-Dirac Distribution for Quantum quasiprobabilities
+
+Calculations for the examples in Arvidsson-Shukur, David R. M., Drori, Jacob Chevalier and Nicole Yunger Halpern 2021 “Conditions tighter than noncommutation needed for nonclassicality” (https://arxiv.org/pdf/2009.04468.pdf). The assistance of Wolfram developer Mads Bahrami in preparing these example calcuations is appreciated.
+
 License matters
 
 These Belief Propagation Algorithms originate with software I auhored as part of Daphne Koller’s Stanford University Subject ‘Probabilistic Graphical Models’, Copyright (c) Daphne Koller, Stanford University, 2012.
